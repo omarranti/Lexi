@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LX PRO TENNIS — Train With Purpose</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f7f5f1;
+      --cream: #f0ece4;
+      --accent: #2d5a3d;
+      --accent-light: #4a7c5f;
+      --gold: #b8965a;
+      --mid: #7a7570;
+      --border: rgba(10,10,10,0.1);
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--sans);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      background: rgba(247,245,241,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    .nav-cta {
+      background: var(--black);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 2px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px 80px 80px;
+      position: relative;
+    }
+
+    .hero-tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 5.5vw, 6rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      margin-bottom: 32px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--mid);
+      max-width: 380px;
+      margin-bottom: 52px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 16px 36px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-block;
+      color: var(--black);
+      padding: 16px 0;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1px solid var(--black);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-item {}
+
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-top: 6px;
+    }
+
+    .hero-right {
+      position: relative;
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    .hero-img-container {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, #d4c9b8 0%, #b8a898 50%, #9a8a7a 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 48px;
+    }
+
+    .hero-img-caption {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: rgba(247,245,241,0.9);
+      max-width: 280px;
+      line-height: 1.5;
+    }
+
+    .hero-badge {
+      position: absolute;
+      top: 48px;
+      right: 48px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 20px 24px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .hero-badge-num {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--accent);
+      display: block;
+    }
+
+    .hero-badge-text {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-top: 4px;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-strip {
+      background: var(--black);
+      color: var(--white);
+      padding: 14px 0;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 18s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-item {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0 40px;
+      color: rgba(247,245,241,0.7);
+      flex-shrink: 0;
+    }
+
+    .marquee-item span {
+      color: var(--gold);
+      margin: 0 16px;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 120px 80px; }
+
+    .section-tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--black);
+    }
+
+    .section-title em { font-style: italic; color: var(--accent); }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-img-box {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(140deg, #c4b8a8 0%, #9a8878 100%);
+      border-radius: 4px;
+      display: flex;
+      align-items: flex-end;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-img-box::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 50%;
+      background: linear-gradient(transparent, rgba(10,10,10,0.5));
+    }
+
+    .about-img-tag {
+      position: relative;
+      z-index: 1;
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--white);
+    }
+
+    .about-accent-box {
+      position: absolute;
+      top: -24px;
+      right: -24px;
+      background: var(--accent);
+      color: var(--white);
+      padding: 28px 24px;
+      border-radius: 4px;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .about-accent-num {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 300;
+      display: block;
+      line-height: 1;
+    }
+
+    .about-accent-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-top: 6px;
+    }
+
+    .about-body {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #4a4540;
+    }
+
+    .about-text strong {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-style: italic;
+      font-size: 1.1em;
+      color: var(--black);
+    }
+
+    .about-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .value-item {
+      border: 1px solid var(--border);
+      padding: 20px;
+      border-radius: 4px;
+      background: var(--white);
+    }
+
+    .value-icon {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .value-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+
+    .value-desc {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    /* ── PROGRAMS ── */
+    .programs {
+      background: var(--white);
+    }
+
+    .programs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 64px;
+    }
+
+    .programs-header-right {
+      font-size: 0.9rem;
+      color: var(--mid);
+      max-width: 280px;
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .program-card {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      transition: border-color 0.25s, transform 0.25s;
+      background: var(--white);
+      cursor: pointer;
+    }
+
+    .program-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .program-card.featured {
+      background: var(--black);
+      border-color: var(--black);
+      color: var(--white);
+    }
+
+    .program-card.featured .program-name,
+    .program-card.featured .program-price,
+    .program-card.featured .program-desc { color: var(--white); }
+
+    .program-card.featured .program-feature { color: rgba(247,245,241,0.65); }
+    .program-card.featured .program-feature::before { background: var(--gold); }
+    .program-card.featured .program-tag { background: var(--gold); color: var(--black); }
+
+    .program-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--cream);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 2px;
+      width: fit-content;
+    }
+
+    .program-price {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1;
+    }
+
+    .program-price sup {
+      font-size: 1.2rem;
+      vertical-align: super;
+      font-family: var(--sans);
+      font-weight: 400;
+    }
+
+    .program-name {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1.2;
+    }
+
+    .program-desc {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--mid);
+    }
+
+    .program-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .program-feature {
+      font-size: 0.85rem;
+      color: #5a5550;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .program-feature::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 5px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .program-cta {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      border: 1px solid var(--black);
+      color: var(--black);
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+
+    .program-cta:hover { background: var(--black); color: var(--white); }
+
+    .program-card.featured .program-cta {
+      border-color: var(--white);
+      color: var(--white);
+    }
+
+    .program-card.featured .program-cta:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* ── HOW IT WORKS ── */
+    .process {
+      background: var(--cream);
+      padding: 120px 80px;
+    }
+
+    .process-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(12.5% + 24px);
+      right: calc(12.5% + 24px);
+      height: 1px;
+      background: var(--border);
+    }
+
+    .process-step {
+      padding: 0 32px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--black);
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .process-step.active .step-num {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--white);
+    }
+
+    .step-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--black);
+      color: var(--white);
+      padding: 120px 80px;
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .testimonials-header .section-title { color: var(--white); }
+    .testimonials-header .section-tag { color: var(--gold); justify-content: center; }
+    .testimonials-header .section-tag::before { background: var(--gold); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      border: 1px solid rgba(247,245,241,0.1);
+      border-radius: 4px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      transition: border-color 0.25s;
+    }
+
+    .testimonial-card:hover { border-color: rgba(247,245,241,0.25); }
+
+    .testimonial-stars {
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+    }
+
+    .testimonial-quote {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.65;
+      color: rgba(247,245,241,0.9);
+      flex: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .author-detail {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(247,245,241,0.4);
+      margin-top: 3px;
+    }
+
+    /* ── IN-PERSON ── */
+    .inperson {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .inperson-left {
+      padding: 120px 80px;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      justify-content: center;
+    }
+
+    .inperson-right {
+      background: var(--accent);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .inperson-right::before {
+      content: 'TENNIS';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-family: var(--serif);
+      font-size: 12rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.06);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: 0.1em;
+    }
+
+    .location-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 28px;
+      color: var(--white);
+      position: relative;
+      z-index: 1;
+      margin-bottom: 16px;
+      backdrop-filter: blur(4px);
+    }
+
+    .location-city {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+
+    .location-detail {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.65;
+    }
+
+    .inperson-types {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .session-type {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+
+    .session-type:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .session-name {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .session-desc {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--mid);
+    }
+
+    .inperson-contact {
+      background: var(--cream);
+      border-radius: 4px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .contact-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 4px;
+    }
+
+    .contact-email {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--black);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-email:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── EMAIL CAPTURE ── */
+    .email-section {
+      background: var(--cream);
+      padding: 100px 80px;
+      text-align: center;
+    }
+
+    .email-section .section-tag { justify-content: center; }
+    .email-section .section-tag::before { display: none; }
+
+    .email-section .section-title { margin-bottom: 16px; }
+
+    .email-sub {
+      font-size: 1rem;
+      color: var(--mid);
+      max-width: 420px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+
+    .email-form {
+      display: flex;
+      max-width: 480px;
+      margin: 0 auto;
+      gap: 0;
+    }
+
+    .email-input {
+      flex: 1;
+      padding: 16px 24px;
+      border: 1px solid var(--border);
+      border-right: none;
+      border-radius: 2px 0 0 2px;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      background: var(--white);
+      color: var(--black);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .email-input:focus { border-color: var(--accent); }
+    .email-input::placeholder { color: var(--mid); }
+
+    .email-btn {
+      padding: 16px 28px;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 0 2px 2px 0;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .email-btn:hover { background: var(--accent); }
+
+    .email-note {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      color: var(--mid);
+      margin-top: 16px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 72px 80px 48px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 64px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(247,245,241,0.08);
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-tagline {
+      font-size: 0.88rem;
+      color: rgba(247,245,241,0.45);
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(247,245,241,0.15);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: rgba(247,245,241,0.5);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: all 0.2s;
+    }
+
+    .social-link:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .footer-col-title {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(247,245,241,0.35);
+      margin-bottom: 24px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
+      color: rgba(247,245,241,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: rgba(247,245,241,0.25);
+      text-transform: uppercase;
+    }
+
+    .footer-made {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: rgba(247,245,241,0.25);
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      section { padding: 80px 24px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 60px 24px; }
+      .hero-right { height: 380px; }
+      .about { grid-template-columns: 1fr; gap: 48px; }
+      .about { padding: 80px 24px; }
+      .programs-grid { grid-template-columns: 1fr; }
+      .programs-header { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .programs-header-right { text-align: left; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .process-steps::before { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .inperson { grid-template-columns: 1fr; }
+      .inperson-left { padding: 80px 24px; }
+      .inperson-right { min-height: 360px; padding: 40px 24px; }
+      .email-section { padding: 80px 24px; }
+      .email-form { flex-direction: column; }
+      .email-input { border-right: 1px solid var(--border); border-radius: 2px; }
+      .email-btn { border-radius: 2px; }
+      footer { padding: 64px 24px 40px; }
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .hero-stats { flex-wrap: wrap; gap: 24px; }
+      .about-values { grid-template-columns: 1fr; }
+      .process { padding: 80px 24px; }
+      .testimonials { padding: 80px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">LX Pro Tennis</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#sessions">Sessions</a></li>
+      <li><a href="https://calendly.com/tennissanjose" target="_blank" class="nav-cta">Book a Lesson</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Professional Tennis Coaching</div>
+      <h1 class="hero-title">
+        Train With<br>
+        <em>Purpose.</em><br>
+        Play With<br>
+        Confidence.
+      </h1>
+      <p class="hero-sub">
+        Personalized coaching for juniors and adults — in person in LA & Bay Area, or online from anywhere in the world.
+      </p>
+      <div class="hero-actions">
+        <a href="https://calendly.com/tennissanjose" target="_blank" class="btn-primary">Book a Lesson</a>
+        <a href="#programs" class="btn-ghost">View Programs</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100+</div>
+          <div class="stat-label">Players Coached</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Coaching Programs</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-placeholder">
+        <p class="hero-img-caption">"Real progress, not random drills."</p>
+      </div>
+      <div class="hero-badge">
+        <span class="hero-badge-num">★ 5.0</span>
+        <div class="hero-badge-text">Client Rating</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span class="marquee-item">Video Analysis <span>✦</span></span>
+      <span class="marquee-item">Private Sessions <span>✦</span></span>
+      <span class="marquee-item">Online Coaching <span>✦</span></span>
+      <span class="marquee-item">Stroke Mechanics <span>✦</span></span>
+      <span class="marquee-item">Match Preparation <span>✦</span></span>
+      <span class="marquee-item">Junior & Adult <span>✦</span></span>
+      <span class="marquee-item">Los Angeles <span>✦</span></span>
+      <span class="marquee-item">Bay Area <span>✦</span></span>
+      <span class="marquee-item">Worldwide Remote <span>✦</span></span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item">Video Analysis <span>✦</span></span>
+      <span class="marquee-item">Private Sessions <span>✦</span></span>
+      <span class="marquee-item">Online Coaching <span>✦</span></span>
+      <span class="marquee-item">Stroke Mechanics <span>✦</span></span>
+      <span class="marquee-item">Match Preparation <span>✦</span></span>
+      <span class="marquee-item">Junior & Adult <span>✦</span></span>
+      <span class="marquee-item">Los Angeles <span>✦</span></span>
+      <span class="marquee-item">Bay Area <span>✦</span></span>
+      <span class="marquee-item">Worldwide Remote <span>✦</span></span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-visual fade-up">
+      <div class="about-img-box">
+        <div class="about-img-tag">On the court<br>and in your corner.</div>
+      </div>
+      <div class="about-accent-box">
+        <span class="about-accent-num">SF|LA</span>
+        <div class="about-accent-label">Locations</div>
+      </div>
+    </div>
+    <div class="about-body">
+      <div class="section-tag">About Lexie</div>
+      <h2 class="section-title">Coaching That<br><em>Actually Works</em></h2>
+      <p class="about-text">
+        I'm a professional tennis coach with a competitive background and a results-driven approach to training. My coaching focuses on <strong>clear technique, smart decision-making, and building confident, independent players.</strong>
+      </p>
+      <p class="about-text">
+        I don't overload you with information — I simplify the game so you understand what to do, why you're doing it, and how to execute under pressure. Whether we train online or in person, my goal is the same: real progress, not random drills.
+      </p>
+      <div class="about-values">
+        <div class="value-item fade-up">
+          <div class="value-icon">⚡</div>
+          <div class="value-title">Clarity First</div>
+          <div class="value-desc">Simple, direct feedback you can apply immediately on court.</div>
+        </div>
+        <div class="value-item fade-up">
+          <div class="value-icon">🎯</div>
+          <div class="value-title">Tailored to You</div>
+          <div class="value-desc">No generic drills. Every session is built around your game.</div>
+        </div>
+        <div class="value-item fade-up">
+          <div class="value-icon">📈</div>
+          <div class="value-title">Measurable Progress</div>
+          <div class="value-desc">Track your improvement with structured feedback and milestones.</div>
+        </div>
+        <div class="value-item fade-up">
+          <div class="value-icon">🌍</div>
+          <div class="value-title">Train Anywhere</div>
+          <div class="value-desc">In person in LA/SF or remote coaching worldwide.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section class="programs" id="programs">
+    <div class="programs-header">
+      <div>
+        <div class="section-tag">Online Programs</div>
+        <h2 class="section-title">Choose Your<br><em>Level of Coaching</em></h2>
+      </div>
+      <p class="programs-header-right">From a one-time technical breakdown to full mentorship — your progress starts here.</p>
+    </div>
+    <div class="programs-grid">
+
+      <!-- Card 1 -->
+      <div class="program-card fade-up">
+        <div class="program-tag">Starter</div>
+        <div class="program-price"><sup>$</sup>75</div>
+        <div class="program-name">One-Time Video Analysis</div>
+        <p class="program-desc">A complete technical breakdown of your game — perfect if you're stuck or want professional eyes before committing to a program.</p>
+        <ul class="program-features">
+          <li class="program-feature">Up to 10 minutes of footage reviewed</li>
+          <li class="program-feature">Stroke mechanics & contact point analysis</li>
+          <li class="program-feature">Footwork & positioning review</li>
+          <li class="program-feature">Specific technical corrections</li>
+          <li class="program-feature">Custom drills to fix your issue</li>
+          <li class="program-feature">Immediate action steps</li>
+        </ul>
+        <a href="mailto:lexieprocollab@gmail.com?subject=Video Analysis Inquiry" class="program-cta">Get Started</a>
+      </div>
+
+      <!-- Card 2 (featured) -->
+      <div class="program-card featured fade-up">
+        <div class="program-tag">Most Popular</div>
+        <div class="program-price"><sup>$</sup>197</div>
+        <div class="program-name">4-Week Performance Program</div>
+        <p class="program-desc">Structured improvement with weekly feedback and real accountability. Built for players serious about making tangible progress in a month.</p>
+        <ul class="program-features">
+          <li class="program-feature">Weekly video analysis & feedback</li>
+          <li class="program-feature">Structured 4-week training plan</li>
+          <li class="program-feature">Personalized drill progressions</li>
+          <li class="program-feature">Technical & tactical guidance</li>
+          <li class="program-feature">Progress tracking each week</li>
+          <li class="program-feature">Direct messaging access</li>
+        </ul>
+        <a href="mailto:lexieprocollab@gmail.com?subject=4-Week Program Inquiry" class="program-cta">Enroll Now</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="program-card fade-up">
+        <div class="program-tag">Elite</div>
+        <div class="program-price"><sup>$</sup>397</div>
+        <div class="program-name">Competitive Edge Mentorship</div>
+        <p class="program-desc">Full coach involvement for competitive players who care about results. Not just video review — an active partner in your development.</p>
+        <ul class="program-features">
+          <li class="program-feature">Ongoing weekly video analysis</li>
+          <li class="program-feature">Match strategy & game planning</li>
+          <li class="program-feature">Mental performance coaching</li>
+          <li class="program-feature">Tournament preparation</li>
+          <li class="program-feature">Priority response & check-ins</li>
+          <li class="program-feature">Full season development arc</li>
+        </ul>
+        <a href="mailto:lexieprocollab@gmail.com?subject=Mentorship Program Inquiry" class="program-cta">Apply Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="process" id="process">
+    <div class="process-header">
+      <div class="section-tag" style="justify-content:center;">How It Works</div>
+      <h2 class="section-title" style="margin-top:12px;">Simple Process,<br><em>Real Results</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step fade-up">
+        <div class="step-num">1</div>
+        <div class="step-title">Choose a Program</div>
+        <p class="step-desc">Pick the level of coaching that fits your goals, budget, and schedule.</p>
+      </div>
+      <div class="process-step active fade-up">
+        <div class="step-num">2</div>
+        <div class="step-title">Send Your Footage</div>
+        <p class="step-desc">Upload practice or match video. Any angle, any device — just hit record.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">3</div>
+        <div class="step-title">Get Your Breakdown</div>
+        <p class="step-desc">Receive detailed voiceover feedback with specific corrections and drills.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">4</div>
+        <div class="step-title">Train & Improve</div>
+        <p class="step-desc">Apply the feedback, track progress, and level up with every session.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials-header">
+      <div class="section-tag">What Players Say</div>
+      <h2 class="section-title" style="color:var(--white);">Results That<br><em style="color:var(--gold)">Speak for Themselves</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Lexie broke down my forehand in a way no coach ever had before. Within two weeks I was hitting with so much more consistency. The drills she gave me were spot-on."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div>
+            <div class="author-name">Marcus T.</div>
+            <div class="author-detail">Competitive Amateur · Bay Area</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"I've done online coaching before and it was generic. With Lexie it felt like she actually watched every second of my video. The feedback was detailed and real."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div>
+            <div class="author-name">Sarah K.</div>
+            <div class="author-detail">Adult Recreational · Remote</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"The 4-week program was a game changer. My serve went from my biggest weakness to a real weapon. Lexie knows how to communicate changes in a way that actually clicks."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">J</div>
+          <div>
+            <div class="author-name">Jake R.</div>
+            <div class="author-detail">Junior Competitor · Los Angeles</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN-PERSON SESSIONS -->
+  <section class="inperson" id="sessions">
+    <div class="inperson-left">
+      <div class="section-tag">In-Person Coaching</div>
+      <h2 class="section-title">Train On Court,<br><em>Side by Side</em></h2>
+      <div class="inperson-types">
+        <div class="session-type">
+          <div class="session-name">Private Sessions</div>
+          <p class="session-desc">1-on-1 personalized coaching focused on your specific technical and tactical development. Ideal for fast, focused improvement at any level — juniors and adults.</p>
+        </div>
+        <div class="session-type">
+          <div class="session-name">Group Sessions</div>
+          <p class="session-desc">Small, level-based groups with high-intensity drills and live point play. A competitive, motivating environment that makes you better through real match situations.</p>
+        </div>
+      </div>
+      <div class="inperson-contact">
+        <div>
+          <div class="contact-label">Book a session or ask about availability</div>
+          <a href="mailto:lexieprocollab@gmail.com" class="contact-email">lexieprocollab@gmail.com</a>
+        </div>
+        <a href="https://calendly.com/tennissanjose" target="_blank" class="btn-primary" style="white-space:nowrap;font-size:0.65rem;">Book Now →</a>
+      </div>
+    </div>
+    <div class="inperson-right">
+      <div class="location-card">
+        <div class="location-city">Los Angeles</div>
+        <div class="location-detail">Private & Group Sessions Available</div>
+      </div>
+      <div class="location-card">
+        <div class="location-city">Bay Area</div>
+        <div class="location-detail">Private & Group Sessions Available</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL CAPTURE -->
+  <section class="email-section">
+    <div class="section-tag">Free Resource</div>
+    <h2 class="section-title">Get the Free Guide:<br><em>Perfect Tennis Racket</em></h2>
+    <p class="email-sub">Not sure what racket is right for your game? Download the guide and get a professional breakdown — no fluff, just what matters.</p>
+    <form class="email-form" onsubmit="handleSubmit(event)">
+      <input type="email" class="email-input" placeholder="your@email.com" required id="emailInput" />
+      <button type="submit" class="email-btn">Download Guide</button>
+    </form>
+    <p class="email-note" id="formNote">Free. No spam. Unsubscribe anytime.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">LX Pro Tennis</div>
+        <p class="footer-tagline">Professional tennis coaching for juniors and adults — in person and online worldwide. Real progress, not random drills.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/lexiepro_tennis/" target="_blank" class="social-link">IG</a>
+          <a href="https://www.tiktok.com/@lexiepro_tennis" target="_blank" class="social-link">TT</a>
+          <a href="mailto:lexieprocollab@gmail.com" class="social-link">✉</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Programs</div>
+        <ul class="footer-links">
+          <li><a href="#programs">Video Analysis — $75</a></li>
+          <li><a href="#programs">4-Week Program — $197</a></li>
+          <li><a href="#programs">Mentorship — $397</a></li>
+          <li><a href="https://calendly.com/tennissanjose" target="_blank">Private Sessions</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Lexie</a></li>
+          <li><a href="mailto:lexieprocollab@gmail.com">Coaching Inquiries</a></li>
+          <li><a href="mailto:lexieprocollab@gmail.com">Brand Partnerships</a></li>
+          <li><a href="https://calendly.com/tennissanjose" target="_blank">Book a Lesson</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 LX Pro Tennis · SF | LA</div>
+      <div class="footer-made">lexieprocollab@gmail.com</div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Nav shrink on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 60) {
+        nav.style.padding = '16px 48px';
+      } else {
+        nav.style.padding = '24px 48px';
+      }
+    });
+
+    // Email form handler
+    function handleSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value;
+      const note = document.getElementById('formNote');
+      // In real implementation, send to backend / MailChimp / etc.
+      note.textContent = `✓ Check your inbox at ${email} — guide on its way!`;
+      note.style.color = 'var(--accent)';
+      document.getElementById('emailInput').value = '';
+      // Direct to PDF download
+      window.open('https://www.lexieprotennis.com/_files/ugd/487303_b115bbca605e4733b2bc48274c6ff9f4.pdf', '_blank');
+    }
+  </script>
+</body>
+</html>
