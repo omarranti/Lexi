@@ -833,7 +833,8 @@
       transition: transform 0.4s ease, filter 0.4s ease;
     }
 
-    .instagram-card:hover img {
+    .instagram-card:hover img,
+    .instagram-card:focus img {
       transform: scale(1.06);
       filter: brightness(0.75);
     }
@@ -850,7 +851,8 @@
       background: linear-gradient(transparent 40%, rgba(10,10,10,0.7));
     }
 
-    .instagram-card:hover .instagram-overlay { opacity: 1; }
+    .instagram-card:hover .instagram-overlay,
+    .instagram-card:focus .instagram-overlay { opacity: 1; }
 
     .instagram-caption {
       font-family: var(--sans);
@@ -889,18 +891,8 @@
       backdrop-filter: blur(4px);
     }
 
-    .instagram-bottom-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+    .instagram-grid + .instagram-grid {
       margin-top: 16px;
-    }
-
-    @media (max-width: 900px) {
-      .instagram-feed { padding: 80px 24px; }
-      .instagram-grid { grid-template-columns: repeat(2, 1fr); }
-      .instagram-bottom-row { grid-template-columns: repeat(2, 1fr); }
-      .instagram-header { flex-direction: column; gap: 16px; align-items: flex-start; }
     }
 
     /* ── IN-PERSON ── */
@@ -1249,6 +1241,9 @@
       .about-values { grid-template-columns: 1fr; }
       .process { padding: 80px 24px; }
       .testimonials { padding: 80px 24px; }
+      .instagram-feed { padding: 80px 24px; }
+      .instagram-grid { grid-template-columns: repeat(2, 1fr); }
+      .instagram-header { flex-direction: column; gap: 16px; align-items: flex-start; }
     }
   </style>
 </head>
@@ -1263,7 +1258,7 @@
       <li><a href="#process">How It Works</a></li>
       <li><a href="#instagram">Content</a></li>
       <li><a href="#sessions">Sessions</a></li>
-      <li><a href="https://calendly.com/tennissanjose" target="_blank" class="nav-cta">Book a Lesson</a></li>
+      <li><a href="https://calendly.com/tennissanjose" target="_blank" rel="noopener noreferrer" class="nav-cta">Book a Lesson</a></li>
     </ul>
   </nav>
 
@@ -1281,7 +1276,7 @@
         Personalized coaching for juniors and adults — in person in LA & Bay Area, or online from anywhere in the world.
       </p>
       <div class="hero-actions">
-        <a href="https://calendly.com/tennissanjose" target="_blank" class="btn-primary">Book a Lesson</a>
+        <a href="https://calendly.com/tennissanjose" target="_blank" rel="noopener noreferrer" class="btn-primary">Book a Lesson</a>
         <a href="#programs" class="btn-ghost">View Programs</a>
       </div>
       <div class="hero-stats">
@@ -1525,71 +1520,71 @@
         <h2 class="section-title">Follow the<br><em>Journey</em></h2>
       </div>
       <div class="instagram-header-right">
-        <a href="https://www.instagram.com/lexiepro_tennis/" target="_blank">@lexiepro_tennis →</a>
+        <a href="https://www.instagram.com/lexiepro_tennis/" target="_blank" rel="noopener noreferrer">@lexiepro_tennis →</a>
       </div>
     </div>
     <div class="instagram-grid">
-      <a href="https://www.instagram.com/p/DTMZLBlETB4/" target="_blank" class="instagram-card fade-up">
-        <img src="img/DTMZLBlETB4.jpg" alt="3 serve drills that hold up under pressure" loading="lazy" />
-        <span class="instagram-type-badge">▶ Reel</span>
+      <a href="https://www.instagram.com/p/DTMZLBlETB4/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
+        <img src="img/DTMZLBlETB4.jpg" alt="3 serve drills that hold up under pressure" width="640" height="1136" loading="lazy" />
+        <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">3 simple drills I use to build a serve that holds up under pressure</p>
           <div class="instagram-meta"><span>♥ 14.1K</span></div>
         </div>
       </a>
-      <a href="https://www.instagram.com/p/DSdBhfhD1WL/" target="_blank" class="instagram-card fade-up">
-        <img src="img/DSdBhfhD1WL.jpg" alt="3 serve drills" loading="lazy" />
-        <span class="instagram-type-badge">▶ Reel</span>
+      <a href="https://www.instagram.com/p/DSdBhfhD1WL/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
+        <img src="img/DSdBhfhD1WL.jpg" alt="3 serve drills" width="640" height="1136" loading="lazy" />
+        <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">3 simple drills to build a serve that holds up under pressure</p>
           <div class="instagram-meta"><span>♥ 4.2K</span></div>
         </div>
       </a>
-      <a href="https://www.instagram.com/p/DS3yoV8j1ss/" target="_blank" class="instagram-card fade-up">
-        <img src="img/DS3yoV8j1ss.jpg" alt="Train contact point at home" loading="lazy" />
-        <span class="instagram-type-badge">▶ Reel</span>
+      <a href="https://www.instagram.com/p/DS3yoV8j1ss/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
+        <img src="img/DS3yoV8j1ss.jpg" alt="Train contact point at home" width="640" height="1136" loading="lazy" />
+        <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">Train contact point at home. No court. No partner. No excuses.</p>
           <div class="instagram-meta"><span>♥ 2.8K</span></div>
         </div>
       </a>
-      <a href="https://www.instagram.com/p/DTOBHz8kih7/" target="_blank" class="instagram-card fade-up">
-        <img src="img/DTOBHz8kih7.jpg" alt="Spin technique exercise" loading="lazy" />
-        <span class="instagram-type-badge">▶ Reel</span>
+      <a href="https://www.instagram.com/p/DTOBHz8kih7/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
+        <img src="img/DTOBHz8kih7.jpg" alt="Spin technique exercise" width="640" height="1136" loading="lazy" />
+        <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">Simple technique exercise that improves your spin</p>
           <div class="instagram-meta"><span>♥ 2.7K</span></div>
         </div>
       </a>
     </div>
-    <div class="instagram-bottom-row">
-      <a href="https://www.instagram.com/p/DSxjKCFEePc/" target="_blank" class="instagram-card fade-up">
-        <img src="img/DSxjKCFEePc.jpg" alt="Warm-up routine" loading="lazy" />
-        <span class="instagram-type-badge">▶ Reel</span>
+    <div class="instagram-grid">
+      <a href="https://www.instagram.com/p/DSxjKCFEePc/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
+        <img src="img/DSxjKCFEePc.jpg" alt="Warm-up routine" width="640" height="1136" loading="lazy" />
+        <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">Warm-up isn't optional. It's the foundation of every good session.</p>
           <div class="instagram-meta"><span>♥ 2.1K</span></div>
         </div>
       </a>
-      <a href="https://www.instagram.com/p/DUBQh6SkQnX/" target="_blank" class="instagram-card fade-up">
-        <img src="img/DUBQh6SkQnX.jpg" alt="Net game made simple" loading="lazy" />
-        <span class="instagram-type-badge">▶ Reel</span>
+      <a href="https://www.instagram.com/p/DUBQh6SkQnX/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
+        <img src="img/DUBQh6SkQnX.jpg" alt="Net game made simple" width="640" height="1136" loading="lazy" />
+        <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">Net game made simple. 5 steps. No panic. Clean volleys.</p>
           <div class="instagram-meta"><span>♥ 1.8K</span></div>
         </div>
       </a>
-      <a href="https://www.instagram.com/p/DSV8_JjEmLi/" target="_blank" class="instagram-card fade-up">
-        <img src="img/DSV8_JjEmLi.jpg" alt="Three serve drills" loading="lazy" />
-        <span class="instagram-type-badge">▶ Reel</span>
+      <a href="https://www.instagram.com/p/DSV8_JjEmLi/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
+        <img src="img/DSV8_JjEmLi.jpg" alt="Three serve drills" width="640" height="1136" loading="lazy" />
+        <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">Three Essential Drills to Fix Your Tennis Serve</p>
           <div class="instagram-meta"><span>♥ 1.6K</span></div>
         </div>
       </a>
-      <a href="https://www.instagram.com/p/DUTmXMrEQgn/" target="_blank" class="instagram-card fade-up">
-        <img src="img/DUTmXMrEQgn.jpg" alt="Clean forehand" loading="lazy" />
-        <span class="instagram-type-badge">▶ Reel</span>
+      <a href="https://www.instagram.com/p/DUTmXMrEQgn/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
+        <img src="img/DUTmXMrEQgn.jpg" alt="Clean forehand" width="640" height="1136" loading="lazy" />
+        <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">No low swing. No robotic swing. Just a clean forehand.</p>
           <div class="instagram-meta"><span>♥ 1.1K</span></div>
@@ -1618,7 +1613,7 @@
           <div class="contact-label">Book a session or ask about availability</div>
           <a href="mailto:lexieprocollab@gmail.com" class="contact-email">lexieprocollab@gmail.com</a>
         </div>
-        <a href="https://calendly.com/tennissanjose" target="_blank" class="btn-primary" style="white-space:nowrap;font-size:0.65rem;">Book Now →</a>
+        <a href="https://calendly.com/tennissanjose" target="_blank" rel="noopener noreferrer" class="btn-primary" style="white-space:nowrap;font-size:0.65rem;">Book Now →</a>
       </div>
     </div>
     <div class="inperson-right">
@@ -1652,8 +1647,8 @@
         <div class="footer-logo">LX Pro Tennis</div>
         <p class="footer-tagline">Professional tennis coaching for juniors and adults — in person and online worldwide. Real progress, not random drills.</p>
         <div class="footer-social">
-          <a href="https://www.instagram.com/lexiepro_tennis/" target="_blank" class="social-link">IG</a>
-          <a href="https://www.tiktok.com/@lexiepro_tennis" target="_blank" class="social-link">TT</a>
+          <a href="https://www.instagram.com/lexiepro_tennis/" target="_blank" rel="noopener noreferrer" class="social-link">IG</a>
+          <a href="https://www.tiktok.com/@lexiepro_tennis" target="_blank" rel="noopener noreferrer" class="social-link">TT</a>
           <a href="mailto:lexieprocollab@gmail.com" class="social-link">✉</a>
         </div>
       </div>
@@ -1663,7 +1658,7 @@
           <li><a href="#programs">Video Analysis — $75</a></li>
           <li><a href="#programs">4-Week Program — $197</a></li>
           <li><a href="#programs">Mentorship — $397</a></li>
-          <li><a href="https://calendly.com/tennissanjose" target="_blank">Private Sessions</a></li>
+          <li><a href="https://calendly.com/tennissanjose" target="_blank" rel="noopener noreferrer">Private Sessions</a></li>
         </ul>
       </div>
       <div>
@@ -1672,7 +1667,7 @@
           <li><a href="#about">About Lexie</a></li>
           <li><a href="mailto:lexieprocollab@gmail.com">Coaching Inquiries</a></li>
           <li><a href="mailto:lexieprocollab@gmail.com">Brand Partnerships</a></li>
-          <li><a href="https://calendly.com/tennissanjose" target="_blank">Book a Lesson</a></li>
+          <li><a href="https://calendly.com/tennissanjose" target="_blank" rel="noopener noreferrer">Book a Lesson</a></li>
         </ul>
       </div>
     </div>
