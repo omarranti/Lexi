@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/lexieprotennis.html" }
+    { "source": "/", "destination": "/lexieprotennis.html" },
+    { "source": "/racket-guide", "destination": "/racket-guide.html" }
   ]
 }
