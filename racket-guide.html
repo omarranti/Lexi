@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfect Tennis Racket Guide — LX PRO TENNIS</title>
+  <meta name="description" content="An interactive guide to choosing the right tennis racket. Grip size finder, weight comparison, head size selector, and racket recommendations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f7f5f1;
+      --cream: #f0ece4;
+      --accent: #2d5a3d;
+      --accent-light: #4a7c5f;
+      --gold: #b8965a;
+      --gold-light: #d4b47a;
+      --mid: #7a7570;
+      --border: rgba(10,10,10,0.1);
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--sans);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      background: rgba(247,245,241,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    .nav-cta {
+      background: var(--black);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 2px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; }
+
+    /* ── HERO ── */
+    .guide-hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 48px 80px;
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-bg-line {
+      position: absolute;
+      width: 1px;
+      height: 200%;
+      background: linear-gradient(to bottom, transparent, rgba(45,90,61,0.15), transparent);
+      animation: hero-drift 12s ease-in-out infinite;
+    }
+
+    @keyframes hero-drift {
+      0%, 100% { transform: translateY(-20%) rotate(0deg); }
+      50% { transform: translateY(-30%) rotate(0.5deg); }
+    }
+
+    .hero-bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(45,90,61,0.08);
+      animation: hero-pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes hero-pulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.05); opacity: 0.7; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .hero-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(247,245,241,0.4);
+      text-decoration: none;
+      margin-bottom: 48px;
+      transition: color 0.2s;
+    }
+
+    .hero-back:hover { color: var(--white); }
+    .hero-back::before { content: '←'; font-size: 0.9rem; }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      width: 48px;
+      height: 1px;
+      background: var(--accent-light);
+      opacity: 0.5;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(3.6rem, 7vw, 8rem);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent-light);
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(247,245,241,0.55);
+      max-width: 520px;
+      margin: 0 auto 56px;
+    }
+
+    .hero-scroll-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      color: rgba(247,245,241,0.3);
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .hero-scroll-cta:hover { color: rgba(247,245,241,0.6); }
+
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(247,245,241,0.3), transparent);
+      animation: scroll-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll-pulse {
+      0%, 100% { opacity: 0.3; height: 48px; }
+      50% { opacity: 0.8; height: 64px; }
+    }
+
+    /* ── SECTION NAV (STICKY TOC) ── */
+    .section-nav {
+      position: sticky;
+      top: 72px;
+      z-index: 50;
+      background: rgba(247,245,241,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .section-nav::-webkit-scrollbar { display: none; }
+
+    .section-nav-inner {
+      display: flex;
+      gap: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-nav a {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      padding: 18px 24px;
+      white-space: nowrap;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .section-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 24px;
+      right: 24px;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .section-nav a:hover { color: var(--black); }
+    .section-nav a.active { color: var(--accent); }
+    .section-nav a.active::after { transform: scaleX(1); }
+
+    /* ── SHARED ── */
+    .section-tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      margin-bottom: 20px;
+    }
+
+    .section-title em { font-style: italic; color: var(--accent); }
+
+    .section-sub {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--mid);
+      max-width: 600px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 16px 36px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-block;
+      color: var(--black);
+      padding: 16px 0;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1px solid var(--black);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── FADE / REVEAL ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .stagger-1 { transition-delay: 0.05s; }
+    .stagger-2 { transition-delay: 0.1s; }
+    .stagger-3 { transition-delay: 0.15s; }
+    .stagger-4 { transition-delay: 0.2s; }
+    .stagger-5 { transition-delay: 0.25s; }
+
+    /* ── SECTION: GRIP SIZE ── */
+    .grip-section {
+      padding: 100px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .grip-finder {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .grip-interactive {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .grip-interactive::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      pointer-events: none;
+    }
+
+    .grip-interactive-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .grip-interactive-sub {
+      font-size: 0.85rem;
+      color: var(--mid);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .grip-slider-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 12px;
+    }
+
+    .grip-slider-value {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .grip-slider {
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      outline: none;
+      margin-bottom: 32px;
+      cursor: pointer;
+    }
+
+    .grip-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: 3px solid var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: transform 0.15s;
+    }
+
+    .grip-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    .grip-slider::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: 3px solid var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .grip-result {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      transition: all 0.4s ease;
+    }
+
+    .grip-result-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .grip-result-size {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+
+    .grip-result-note {
+      font-size: 0.82rem;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    .grip-info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .grip-info-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      cursor: default;
+    }
+
+    .grip-info-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(45,90,61,0.08);
+    }
+
+    .grip-info-card-step {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .grip-info-card-title {
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .grip-info-card-desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--mid);
+    }
+
+    /* ── SECTION: WEIGHT ── */
+    .weight-section {
+      background: var(--black);
+      color: var(--white);
+      padding: 100px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .weight-section .section-tag { color: var(--accent-light); }
+    .weight-section .section-tag::before { background: var(--accent-light); }
+    .weight-section .section-title { color: var(--white); }
+    .weight-section .section-title em { color: var(--accent-light); }
+    .weight-section .section-sub { color: rgba(247,245,241,0.5); }
+
+    .weight-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .weight-toggle {
+      display: flex;
+      margin-top: 56px;
+      margin-bottom: 48px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      padding: 4px;
+      width: fit-content;
+    }
+
+    .weight-toggle-btn {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border: none;
+      background: transparent;
+      color: rgba(247,245,241,0.4);
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .weight-toggle-btn.active {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .weight-toggle-btn:hover:not(.active) {
+      color: rgba(247,245,241,0.7);
+    }
+
+    .weight-comparison {
+      display: grid;
+      grid-template-columns: 1fr 80px 1fr;
+      gap: 0;
+      align-items: stretch;
+    }
+
+    .weight-card {
+      padding: 40px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .weight-card:hover {
+      border-color: rgba(255,255,255,0.2);
+      transform: translateY(-4px);
+    }
+
+    .weight-card-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 16px;
+    }
+
+    .weight-card-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .weight-card-range {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: rgba(247,245,241,0.35);
+      margin-bottom: 24px;
+    }
+
+    .weight-card-traits {
+      list-style: none;
+    }
+
+    .weight-card-traits li {
+      font-size: 0.88rem;
+      color: rgba(247,245,241,0.6);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      line-height: 1.5;
+    }
+
+    .weight-card-traits li:last-child { border-bottom: none; }
+
+    .trait-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    .trait-pro { background: rgba(45,90,61,0.3); color: var(--accent-light); }
+    .trait-con { background: rgba(184,150,90,0.2); color: var(--gold-light); }
+    .trait-best { background: rgba(255,255,255,0.08); color: rgba(247,245,241,0.5); }
+
+    .weight-vs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .weight-vs-text {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: rgba(247,245,241,0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .weight-vs::before {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.08), transparent);
+    }
+
+    /* Weight table */
+    .weight-table-wrap {
+      margin-top: 64px;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.5s, max-height 0.5s;
+    }
+
+    .weight-table-wrap.open {
+      opacity: 1;
+      max-height: 600px;
+    }
+
+    .weight-table-toggle {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(247,245,241,0.4);
+      background: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 14px 28px;
+      cursor: pointer;
+      border-radius: 2px;
+      margin-top: 48px;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .weight-table-toggle:hover {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .weight-table-toggle .arrow {
+      transition: transform 0.3s;
+      font-size: 0.5rem;
+    }
+
+    .weight-table-toggle.open .arrow {
+      transform: rotate(180deg);
+    }
+
+    .weight-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+    }
+
+    .weight-table th {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      text-align: left;
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .weight-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: rgba(247,245,241,0.6);
+      font-size: 0.88rem;
+    }
+
+    .weight-table tbody tr {
+      transition: background 0.2s;
+    }
+
+    .weight-table tbody tr:hover {
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* ── SECTION: HEAD SIZE ── */
+    .headsize-section {
+      padding: 100px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .headsize-selector {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .headsize-option {
+      padding: 40px 28px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .headsize-option::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .headsize-option:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(45,90,61,0.1);
+    }
+
+    .headsize-option.selected {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .headsize-option.selected::before { opacity: 1; }
+    .headsize-option.selected * { position: relative; z-index: 1; }
+
+    .headsize-visual {
+      width: 80px;
+      height: 100px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      transition: all 0.4s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .headsize-option:first-child .headsize-visual { width: 60px; height: 76px; }
+    .headsize-option:last-child .headsize-visual { width: 100px; height: 120px; }
+
+    .headsize-option.selected .headsize-visual {
+      border-color: var(--white);
+    }
+
+    .headsize-visual-line {
+      width: 1px;
+      height: 50%;
+      background: var(--accent);
+      opacity: 0.4;
+      transition: background 0.4s;
+    }
+
+    .headsize-option.selected .headsize-visual-line { background: var(--white); }
+
+    .headsize-name {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 4px;
+      transition: color 0.3s;
+    }
+
+    .headsize-range {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--mid);
+      margin-bottom: 12px;
+      transition: color 0.3s;
+    }
+
+    .headsize-option.selected .headsize-range { color: rgba(247,245,241,0.6); }
+
+    .headsize-keyword {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      transition: color 0.3s;
+    }
+
+    .headsize-option.selected .headsize-keyword { color: var(--gold-light); }
+
+    /* Head size detail panel */
+    .headsize-detail {
+      margin-top: 40px;
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .headsize-detail.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .headsize-detail-title {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+
+    .headsize-detail p {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: var(--mid);
+    }
+
+    .headsize-detail-meter {
+      margin-top: 24px;
+    }
+
+    .meter-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .meter-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      width: 100px;
+      flex-shrink: 0;
+    }
+
+    .meter-bar {
+      flex: 1;
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .meter-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      background: var(--accent);
+    }
+
+    .meter-fill.gold { background: var(--gold); }
+
+    /* ── BALANCE ── */
+    .balance-wrap {
+      margin-top: 72px;
+    }
+
+    .balance-interactive {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 48px;
+      margin-top: 32px;
+    }
+
+    .balance-bar-container {
+      position: relative;
+      padding: 48px 0 80px;
+    }
+
+    .balance-track {
+      width: 100%;
+      height: 3px;
+      background: var(--border);
+      position: relative;
+    }
+
+    .balance-indicator {
+      position: absolute;
+      top: -10px;
+      width: 24px;
+      height: 24px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 3px solid var(--white);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      left: 50%;
+      transform: translateX(-50%);
+      transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: grab;
+      z-index: 2;
+    }
+
+    .balance-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .balance-label {
+      text-align: center;
+      max-width: 200px;
+    }
+
+    .balance-label-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+
+    .balance-label-desc {
+      font-size: 0.82rem;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    .balance-label-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+    }
+
+    .balance-label-center .balance-label-name {
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    /* ── SECTION: SKILL LEVEL QUIZ ── */
+    .level-section {
+      background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
+      padding: 100px 80px;
+    }
+
+    .level-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .level-tabs {
+      display: flex;
+      gap: 8px;
+      margin-top: 48px;
+      margin-bottom: 48px;
+    }
+
+    .level-tab {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--mid);
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .level-tab::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .level-tab:hover { border-color: var(--accent); color: var(--accent); }
+
+    .level-tab.active {
+      border-color: var(--accent);
+      color: var(--white);
+    }
+
+    .level-tab.active::before { transform: translateY(0); }
+    .level-tab span { position: relative; z-index: 1; }
+
+    .level-panel {
+      display: none;
+      animation: fadeSlide 0.5s ease forwards;
+    }
+
+    .level-panel.active { display: block; }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .level-panel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .level-panel-content h3 {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+
+    .level-panel-content h3 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .level-panel-content p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--mid);
+      margin-bottom: 20px;
+    }
+
+    .level-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .level-spec {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .level-spec-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 6px;
+    }
+
+    .level-spec-value {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    .level-panel-recs {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .level-rec-card {
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.3s;
+    }
+
+    .level-rec-card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+      box-shadow: -4px 4px 20px rgba(45,90,61,0.06);
+    }
+
+    .level-rec-tag {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .level-rec-name {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .level-rec-desc {
+      font-size: 0.85rem;
+      color: var(--mid);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .level-rec-link {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .level-rec-link:hover { gap: 12px; }
+
+    /* ── JUNIORS ── */
+    .juniors-section {
+      padding: 100px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+
+    .junior-timeline {
+      margin-top: 56px;
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .junior-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--gold));
+      border-radius: 1px;
+    }
+
+    .junior-item {
+      position: relative;
+      padding: 0 0 48px 40px;
+    }
+
+    .junior-item:last-child { padding-bottom: 0; }
+
+    .junior-item::before {
+      content: '';
+      position: absolute;
+      left: -44px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--accent);
+      z-index: 2;
+    }
+
+    .junior-item:nth-child(2)::before { border-color: var(--accent-light); }
+    .junior-item:nth-child(3)::before { border-color: var(--gold); }
+
+    .junior-age {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .junior-item:nth-child(2) .junior-age { color: var(--accent-light); }
+    .junior-item:nth-child(3) .junior-age { color: var(--gold); }
+
+    .junior-weight {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      margin-bottom: 12px;
+    }
+
+    .junior-desc {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--mid);
+      max-width: 500px;
+    }
+
+    /* ── CTA ── */
+    .guide-cta {
+      text-align: center;
+      padding: 100px 48px;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guide-cta::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .guide-cta-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .guide-cta-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      color: var(--black);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .guide-cta-title em { font-style: italic; color: var(--accent); }
+
+    .guide-cta-sub {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--mid);
+      margin-bottom: 40px;
+    }
+
+    .guide-cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .affiliate-note {
+      font-size: 0.78rem;
+      color: var(--mid);
+      font-style: italic;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: rgba(247,245,241,0.7);
+      padding: 64px 80px 40px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 64px;
+      margin-bottom: 48px;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(247,245,241,0.5);
+      max-width: 320px;
+      margin-bottom: 24px;
+    }
+
+    .footer-social { display: flex; gap: 12px; }
+
+    .social-link {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: rgba(247,245,241,0.5);
+      text-decoration: none;
+      padding: 8px 14px;
+      border: 1px solid rgba(247,245,241,0.15);
+      border-radius: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .social-link:hover { color: var(--white); border-color: rgba(247,245,241,0.4); }
+
+    .footer-col-title {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: rgba(247,245,241,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid rgba(247,245,241,0.1);
+    }
+
+    .footer-copy, .footer-made {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: rgba(247,245,241,0.3);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+
+      .guide-hero { padding: 100px 24px 60px; min-height: auto; }
+      .hero-title { font-size: clamp(2.8rem, 10vw, 5rem); }
+
+      .section-nav { padding: 0 16px; }
+      .section-nav a { padding: 14px 16px; font-size: 0.6rem; }
+
+      .grip-section { padding: 64px 24px; }
+      .grip-finder { grid-template-columns: 1fr; gap: 32px; }
+
+      .weight-section { padding: 64px 24px; }
+      .weight-comparison { grid-template-columns: 1fr; gap: 24px; }
+      .weight-vs { display: none; }
+
+      .headsize-section { padding: 64px 24px; }
+      .headsize-selector { grid-template-columns: 1fr; }
+      .headsize-detail { grid-template-columns: 1fr; padding: 32px; }
+
+      .level-section { padding: 64px 24px; }
+      .level-tabs { flex-wrap: wrap; }
+      .level-panel-grid { grid-template-columns: 1fr; }
+      .level-specs { grid-template-columns: 1fr; }
+
+      .juniors-section { padding: 64px 24px; }
+
+      .guide-cta { padding: 64px 24px; }
+
+      footer { padding: 48px 24px 32px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .hero-bg-line, .hero-bg-circle { animation: none; }
+      .scroll-line { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="/" class="nav-logo">LX Pro Tennis</a>
+    <ul class="nav-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#programs">Programs</a></li>
+      <li><a href="/racket-guide">Racket Guide</a></li>
+      <li><a href="/#instagram">Content</a></li>
+      <li><a href="/#sessions">Sessions</a></li>
+      <li><a href="https://calendly.com/tennissanjose" target="_blank" rel="noopener noreferrer" class="nav-cta">Book a Lesson</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- HERO -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="guide-hero">
+    <div class="hero-bg">
+      <div class="hero-bg-line" style="left:12%;animation-delay:0s;"></div>
+      <div class="hero-bg-line" style="left:28%;animation-delay:2s;"></div>
+      <div class="hero-bg-line" style="left:55%;animation-delay:4s;"></div>
+      <div class="hero-bg-line" style="left:78%;animation-delay:1s;"></div>
+      <div class="hero-bg-line" style="left:92%;animation-delay:3s;"></div>
+      <div class="hero-bg-circle" style="width:400px;height:400px;top:10%;right:-10%;animation-delay:0s;"></div>
+      <div class="hero-bg-circle" style="width:300px;height:300px;bottom:5%;left:-5%;animation-delay:3s;"></div>
+    </div>
+    <div class="hero-content">
+      <a href="/" class="hero-back">Back to Home</a>
+      <div class="hero-eyebrow">Free Resource</div>
+      <h1 class="hero-title">The Perfect<em>Tennis Racket</em></h1>
+      <p class="hero-sub">A practical, interactive guide to choosing the right racket for your game. Built on coaching experience, not marketing trends.</p>
+      <a href="#grip-size" class="hero-scroll-cta">
+        Start Exploring
+        <span class="scroll-line"></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- STICKY NAV -->
+  <div class="section-nav" id="sectionNav">
+    <div class="section-nav-inner">
+      <a href="#grip-size" class="active" data-section="grip-size">Grip Size</a>
+      <a href="#weight" data-section="weight">Weight</a>
+      <a href="#head-size" data-section="head-size">Head Size</a>
+      <a href="#skill-level" data-section="skill-level">Skill Level</a>
+      <a href="#juniors" data-section="juniors">Juniors</a>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- GRIP SIZE -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="grip-section" id="grip-size">
+    <div class="fade-up">
+      <div class="section-tag">Section 01</div>
+      <h2 class="section-title">Grip Size &mdash; <em>Comfort &amp; Control</em></h2>
+      <p class="section-sub">Slide to your hand measurement and get your recommended grip size instantly.</p>
+    </div>
+
+    <div class="grip-finder">
+      <div class="grip-interactive fade-up stagger-1">
+        <div class="grip-interactive-title">Find Your Grip</div>
+        <div class="grip-interactive-sub">Measure the distance from the middle crease of your palm to the tip of your ring finger (in cm).</div>
+
+        <div class="grip-slider-label">Your Measurement</div>
+        <div class="grip-slider-value" id="gripValue">7.0 cm</div>
+        <input type="range" class="grip-slider" id="gripSlider" min="5.5" max="9.0" step="0.1" value="7.0">
+
+        <div class="grip-result" id="gripResult">
+          <div class="grip-result-label">Recommended Grip</div>
+          <div class="grip-result-size" id="gripResultSize">#2 (4 1/4")</div>
+          <div class="grip-result-note" id="gripResultNote">Most common for adult women. Good balance of control and comfort.</div>
+        </div>
+      </div>
+
+      <div class="grip-info-cards">
+        <div class="grip-info-card fade-up stagger-2">
+          <div class="grip-info-card-step">1</div>
+          <div class="grip-info-card-title">Use a continental grip</div>
+          <div class="grip-info-card-desc">Hold the racket like a handshake. Base knuckle of index finger on the top-right bevel.</div>
+        </div>
+        <div class="grip-info-card fade-up stagger-3">
+          <div class="grip-info-card-step">2</div>
+          <div class="grip-info-card-title">Check the finger gap</div>
+          <div class="grip-info-card-desc">Exactly one index finger should fit between your fingertips and palm. Tighter = go up. Looser = go down.</div>
+        </div>
+        <div class="grip-info-card fade-up stagger-4">
+          <div class="grip-info-card-step">3</div>
+          <div class="grip-info-card-title">When in doubt, go smaller</div>
+          <div class="grip-info-card-desc">Many players use slightly smaller grips for more wrist freedom and spin. You can always add an overgrip.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- WEIGHT -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="weight-section" id="weight">
+    <div class="weight-inner">
+      <div class="fade-up">
+        <div class="section-tag">Section 02</div>
+        <h2 class="section-title">Racket Weight &mdash; <em>Find Your Match</em></h2>
+        <p class="section-sub">There is no "men's" or "women's" racket. Weight depends on strength, swing speed, technique, and comfort.</p>
+      </div>
+
+      <div class="weight-comparison fade-up stagger-1">
+        <div class="weight-card">
+          <div class="weight-card-label">Lighter Frames</div>
+          <div class="weight-card-title">9&ndash;10 oz</div>
+          <div class="weight-card-range">255 &ndash; 285 grams</div>
+          <ul class="weight-card-traits">
+            <li><span class="trait-icon trait-pro">+</span> Easier to swing and generate spin</li>
+            <li><span class="trait-icon trait-con">&ndash;</span> Less powerful on contact</li>
+            <li><span class="trait-icon trait-con">&ndash;</span> Less stable on off-center hits</li>
+            <li><span class="trait-icon trait-best">&bull;</span> Best for compact swings, juniors, arm discomfort</li>
+          </ul>
+        </div>
+        <div class="weight-vs">
+          <span class="weight-vs-text">vs</span>
+        </div>
+        <div class="weight-card">
+          <div class="weight-card-label">Heavier Frames</div>
+          <div class="weight-card-title">11&ndash;12 oz</div>
+          <div class="weight-card-range">310 &ndash; 340 grams</div>
+          <ul class="weight-card-traits">
+            <li><span class="trait-icon trait-pro">+</span> More powerful, stable, and controlled</li>
+            <li><span class="trait-icon trait-con">&ndash;</span> Less maneuverable</li>
+            <li><span class="trait-icon trait-con">&ndash;</span> Higher injury risk if technique is off</li>
+            <li><span class="trait-icon trait-best">&bull;</span> Best for aggressive players, fast long strokes</li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="weight-table-toggle fade-up stagger-2" id="weightTableToggle">
+        Full weight chart by level <span class="arrow">&#9660;</span>
+      </button>
+
+      <div class="weight-table-wrap" id="weightTableWrap">
+        <table class="weight-table">
+          <thead>
+            <tr>
+              <th>Player Level / Type</th>
+              <th>Unstrung Weight (Men)</th>
+              <th>Unstrung Weight (Women)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Young player moving to adult racket</td><td>250&ndash;270 g</td><td>250&ndash;270 g</td></tr>
+            <tr><td>Seniors (lightness &amp; power)</td><td>240&ndash;270 g</td><td>240&ndash;265 g</td></tr>
+            <tr><td>Beginners / early 4th series</td><td>260&ndash;275 g</td><td>255&ndash;275 g</td></tr>
+            <tr><td>Intermediate (near 3rd series)</td><td>280&ndash;300 g</td><td>270&ndash;290 g</td></tr>
+            <tr><td>Advanced (3rd &ndash; close to 2nd)</td><td>~300 g</td><td>280&ndash;300 g</td></tr>
+            <tr><td>Advanced (2nd series +)</td><td>295&ndash;340 g</td><td>285&ndash;315 g</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- HEAD SIZE & BALANCE -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="headsize-section" id="head-size">
+    <div class="fade-up">
+      <div class="section-tag">Section 03</div>
+      <h2 class="section-title">Head Size &amp; Balance &mdash; <em>Performance</em></h2>
+      <p class="section-sub">Click a head size below to explore how it affects your game.</p>
+    </div>
+
+    <div class="headsize-selector fade-up stagger-1">
+      <div class="headsize-option" data-head="small" onclick="selectHeadSize(this)">
+        <div class="headsize-visual"><div class="headsize-visual-line"></div></div>
+        <div class="headsize-name">Small</div>
+        <div class="headsize-range">85&ndash;94 sq in</div>
+        <div class="headsize-keyword">Control</div>
+      </div>
+      <div class="headsize-option selected" data-head="mid" onclick="selectHeadSize(this)">
+        <div class="headsize-visual"><div class="headsize-visual-line"></div></div>
+        <div class="headsize-name">Midplus</div>
+        <div class="headsize-range">95&ndash;105 sq in</div>
+        <div class="headsize-keyword">Control + Power</div>
+      </div>
+      <div class="headsize-option" data-head="over" onclick="selectHeadSize(this)">
+        <div class="headsize-visual"><div class="headsize-visual-line"></div></div>
+        <div class="headsize-name">Oversize</div>
+        <div class="headsize-range">106&ndash;118 sq in</div>
+        <div class="headsize-keyword">Power</div>
+      </div>
+    </div>
+
+    <div class="headsize-detail show" id="headsizeDetail">
+      <div>
+        <div class="headsize-detail-title" id="headsizeDetailTitle">Midplus &mdash; The Sweet Spot</div>
+        <p id="headsizeDetailDesc">The most popular head size for intermediate to advanced players. Offers a balanced combination of power and control, with a forgiving sweet spot that still rewards clean hitting.</p>
+      </div>
+      <div>
+        <div class="headsize-detail-meter">
+          <div class="meter-row">
+            <div class="meter-label">Power</div>
+            <div class="meter-bar"><div class="meter-fill" id="meterPower" style="width:60%;"></div></div>
+          </div>
+          <div class="meter-row">
+            <div class="meter-label">Control</div>
+            <div class="meter-bar"><div class="meter-fill" id="meterControl" style="width:70%;"></div></div>
+          </div>
+          <div class="meter-row">
+            <div class="meter-label">Forgiveness</div>
+            <div class="meter-bar"><div class="meter-fill gold" id="meterForgive" style="width:55%;"></div></div>
+          </div>
+          <div class="meter-row">
+            <div class="meter-label">Spin</div>
+            <div class="meter-bar"><div class="meter-fill" id="meterSpin" style="width:60%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Balance -->
+    <div class="balance-wrap fade-up">
+      <div class="section-tag">Balance</div>
+      <p class="section-sub" style="margin-top:8px;">How weight is distributed along the frame affects maneuverability, power, and feel.</p>
+
+      <div class="balance-interactive">
+        <div class="balance-bar-container">
+          <div class="balance-track">
+            <div class="balance-indicator" id="balanceIndicator"></div>
+          </div>
+          <div class="balance-labels">
+            <div class="balance-label">
+              <div class="balance-label-name">Head-Light</div>
+              <div class="balance-label-desc">More weight in the handle. Easier to maneuver, faster swings.</div>
+            </div>
+            <div class="balance-label-center">
+              <div class="balance-label-name">Even</div>
+            </div>
+            <div class="balance-label" style="text-align:right;">
+              <div class="balance-label-name">Head-Heavy</div>
+              <div class="balance-label-desc">More weight toward the head. Extra power and stability.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SKILL LEVEL TABS -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="level-section" id="skill-level">
+    <div class="level-inner">
+      <div class="fade-up">
+        <div class="section-tag">Section 04</div>
+        <h2 class="section-title">Rackets by <em>Skill Level</em></h2>
+        <p class="section-sub">Select your level for personalized specs and racket recommendations with direct Amazon links.</p>
+        <p class="affiliate-note">As an Amazon Associate, I earn from qualifying purchases. These are rackets I genuinely recommend.</p>
+      </div>
+
+      <div class="level-tabs fade-up stagger-1">
+        <button class="level-tab active" onclick="selectLevel('beginner')"><span>Beginner</span></button>
+        <button class="level-tab" onclick="selectLevel('intermediate')"><span>Intermediate</span></button>
+        <button class="level-tab" onclick="selectLevel('advanced')"><span>Advanced</span></button>
+      </div>
+
+      <!-- BEGINNER PANEL -->
+      <div class="level-panel active" id="panel-beginner">
+        <div class="level-panel-grid">
+          <div class="level-panel-content">
+            <h3>Start With <em>Confidence</em></h3>
+            <p>Begin with a lighter racket and a larger head size. This makes it easier to make consistent contact and rally comfortably while your arm and muscles adapt.</p>
+            <p>Focus on forgiveness and easy power &mdash; control will come with technique.</p>
+            <div class="level-specs">
+              <div class="level-spec">
+                <div class="level-spec-label">Head Size</div>
+                <div class="level-spec-value">102&ndash;110 sq in</div>
+              </div>
+              <div class="level-spec">
+                <div class="level-spec-label">Weight</div>
+                <div class="level-spec-value">255&ndash;275 g</div>
+              </div>
+              <div class="level-spec">
+                <div class="level-spec-label">Balance</div>
+                <div class="level-spec-value">Head-Heavy</div>
+              </div>
+              <div class="level-spec">
+                <div class="level-spec-label">Lines</div>
+                <div class="level-spec-value">Ultra / Clash</div>
+              </div>
+            </div>
+          </div>
+          <div class="level-panel-recs">
+            <div class="level-rec-card">
+              <div class="level-rec-tag">All-Around Value</div>
+              <div class="level-rec-name">HEAD Graphene XT Speed MP</div>
+              <div class="level-rec-desc">Versatile racket with great balance of power, control, and comfort. Perfect all-rounder for those starting out.</div>
+              <a href="https://www.amazon.com/s?k=HEAD+Graphene+XT+Speed+MP+Tennis+Racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer" class="level-rec-link">View on Amazon &rarr;</a>
+            </div>
+            <div class="level-rec-card">
+              <div class="level-rec-tag">Comfort &amp; Power</div>
+              <div class="level-rec-name">Prince Warrior 107</div>
+              <div class="level-rec-desc">Oversize head with comfortable feel. Easy power and a forgiving sweet spot to build confidence.</div>
+              <a href="https://www.amazon.com/s?k=Prince+Warrior+107+Tennis+Racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer" class="level-rec-link">View on Amazon &rarr;</a>
+            </div>
+            <div class="level-rec-card">
+              <div class="level-rec-tag">More Control</div>
+              <div class="level-rec-name">Babolat Boost Drive</div>
+              <div class="level-rec-desc">Lightweight, pre-strung racket with excellent control. Arm-friendly and easy to swing.</div>
+              <a href="https://www.amazon.com/s?k=Babolat+Boost+Drive+Strung+Tennis+Racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer" class="level-rec-link">View on Amazon &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE PANEL -->
+      <div class="level-panel" id="panel-intermediate">
+        <div class="level-panel-grid">
+          <div class="level-panel-content">
+            <h3>Build Your <em>Weapon</em></h3>
+            <p>As you improve, reduce head size and slightly increase weight. This helps control growing swing speed while keeping shots consistent.</p>
+            <p>Look for rackets that reward good technique but still offer enough forgiveness for off-days.</p>
+            <div class="level-specs">
+              <div class="level-spec">
+                <div class="level-spec-label">Head Size</div>
+                <div class="level-spec-value">98&ndash;104 sq in</div>
+              </div>
+              <div class="level-spec">
+                <div class="level-spec-label">Weight</div>
+                <div class="level-spec-value">280&ndash;300 g</div>
+              </div>
+              <div class="level-spec">
+                <div class="level-spec-label">Balance</div>
+                <div class="level-spec-value">Even / Slightly HL</div>
+              </div>
+              <div class="level-spec">
+                <div class="level-spec-label">Lines</div>
+                <div class="level-spec-value">Clash / Blade</div>
+              </div>
+            </div>
+          </div>
+          <div class="level-panel-recs">
+            <div class="level-rec-card">
+              <div class="level-rec-tag">Control &amp; Feel</div>
+              <div class="level-rec-name">Babolat Pure Aero Team (7th Gen)</div>
+              <div class="level-rec-desc">Excellent spin potential with refined control. Strung with 16g Syn Gut at mid-range tension.</div>
+              <a href="https://www.amazon.com/s?k=Babolat+Pure+Aero+Team+Tennis+Racquet+7th+Gen&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer" class="level-rec-link">View on Amazon &rarr;</a>
+            </div>
+            <div class="level-rec-card">
+              <div class="level-rec-tag">Feel</div>
+              <div class="level-rec-name">HEAD Boom MP</div>
+              <div class="level-rec-desc">Outstanding feel and feedback on every shot. Strung mid tension with Velocity 16 Gauge.</div>
+              <a href="https://www.amazon.com/s?k=HEAD+Boom+MP+Tennis+Racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer" class="level-rec-link">View on Amazon &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADVANCED PANEL -->
+      <div class="level-panel" id="panel-advanced">
+        <div class="level-panel-grid">
+          <div class="level-panel-content">
+            <h3>Precision Under <em>Pressure</em></h3>
+            <p>Advanced players need rackets that prioritize control, feel, and precision. With fast swing speeds and consistent technique, the racket should enhance accuracy &mdash; not add power.</p>
+            <p>Smaller head sizes and heavier frames provide stability and a connected feel at contact.</p>
+            <div class="level-specs">
+              <div class="level-spec">
+                <div class="level-spec-label">Head Size</div>
+                <div class="level-spec-value">95&ndash;100 sq in</div>
+              </div>
+              <div class="level-spec">
+                <div class="level-spec-label">Weight</div>
+                <div class="level-spec-value">295&ndash;340 g</div>
+              </div>
+              <div class="level-spec">
+                <div class="level-spec-label">Balance</div>
+                <div class="level-spec-value">Head-Light</div>
+              </div>
+              <div class="level-spec">
+                <div class="level-spec-label">Key Trait</div>
+                <div class="level-spec-value">Precision</div>
+              </div>
+            </div>
+          </div>
+          <div class="level-panel-recs">
+            <div class="level-rec-card">
+              <div class="level-rec-tag">Arm-Friendly</div>
+              <div class="level-rec-name">Wilson Blade 98 16x19 v9</div>
+              <div class="level-rec-desc">A modern classic known for arm-friendly flex and precise control. Ideal for baseline players who value feel.</div>
+              <a href="https://www.amazon.com/s?k=Wilson+Blade+98+16x19+v9+Tennis+Racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer" class="level-rec-link">View on Amazon &rarr;</a>
+            </div>
+            <div class="level-rec-card">
+              <div class="level-rec-tag">Value</div>
+              <div class="level-rec-name">Wilson RF 01 Pro Performance</div>
+              <div class="level-rec-desc">Strung with Sensation 16 Natural at mid range tension. High-performance frame at a competitive price.</div>
+              <a href="https://www.amazon.com/s?k=Wilson+RF+01+Pro+Performance+Tennis+Racket&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer" class="level-rec-link">View on Amazon &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- JUNIORS -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="juniors-section" id="juniors">
+    <div class="fade-up">
+      <div class="section-tag">Section 05</div>
+      <h2 class="section-title">Junior <em>Racket Sizing</em></h2>
+      <p class="section-sub">Proper sizing improves performance, builds confidence, and reduces injury risk for young players.</p>
+    </div>
+
+    <div class="junior-timeline">
+      <div class="junior-item fade-up stagger-1">
+        <div class="junior-age">Under 13</div>
+        <div class="junior-weight">255 &ndash; 275 g &middot; Lighter &amp; Head-Heavy</div>
+        <div class="junior-desc">Players need lighter rackets that are slightly head-heavy to help generate power with developing muscles. Focus on comfort and easy maneuverability.</div>
+      </div>
+      <div class="junior-item fade-up stagger-2">
+        <div class="junior-age">Ages 13&ndash;15</div>
+        <div class="junior-weight">270 &ndash; 285 g &middot; Transitional</div>
+        <div class="junior-desc">Transitional weight range. Players begin moving toward adult frames as their strength and technique develop. Balance between maneuverability and stability.</div>
+      </div>
+      <div class="junior-item fade-up stagger-3">
+        <div class="junior-age">Ages 15+</div>
+        <div class="junior-weight">285 g+ &middot; Adult Frames</div>
+        <div class="junior-desc">Players can move to rackets of 285 g or more, offering a mature balance between maneuverability and power for competitive play development.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- CTA -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="guide-cta">
+    <div class="guide-cta-content fade-up">
+      <h2 class="guide-cta-title">Ready to Choose <em>Your Racket?</em></h2>
+      <p class="guide-cta-sub">The right racket fits your body, your swing, and your goals &mdash; not trends, not brands, not what someone else plays with. Need personalized advice? Let's talk.</p>
+      <div class="guide-cta-actions">
+        <a href="https://calendly.com/tennissanjose" target="_blank" rel="noopener noreferrer" class="btn-primary">Book a Lesson &rarr;</a>
+        <a href="/" class="btn-ghost">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">LX Pro Tennis</div>
+        <p class="footer-tagline">Professional tennis coaching for juniors and adults &mdash; in person and online worldwide. Real progress, not random drills.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/lexiepro_tennis/" target="_blank" rel="noopener noreferrer" class="social-link">IG</a>
+          <a href="https://www.tiktok.com/@lexiepro_tennis" target="_blank" rel="noopener noreferrer" class="social-link">TT</a>
+          <a href="mailto:lexieprocollab@gmail.com" class="social-link">&#9993;</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Programs</div>
+        <ul class="footer-links">
+          <li><a href="/#programs">Video Analysis &mdash; $75</a></li>
+          <li><a href="/#programs">4-Week Program &mdash; $197</a></li>
+          <li><a href="/#programs">Mentorship &mdash; $397</a></li>
+          <li><a href="https://calendly.com/tennissanjose" target="_blank" rel="noopener noreferrer">Private Sessions</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="/#about">About Lexie</a></li>
+          <li><a href="mailto:lexieprocollab@gmail.com">Coaching Inquiries</a></li>
+          <li><a href="mailto:lexieprocollab@gmail.com">Brand Partnerships</a></li>
+          <li><a href="https://calendly.com/tennissanjose" target="_blank" rel="noopener noreferrer">Book a Lesson</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 LX Pro Tennis &middot; SF | LA</div>
+      <div class="footer-made">lexieprocollab@gmail.com</div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Scroll animations ──
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+          obs.unobserve(el.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ── Nav shrink ──
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 60) {
+        nav.style.padding = '16px 48px';
+      } else {
+        nav.style.padding = '24px 48px';
+      }
+    });
+
+    // ── Sticky section nav highlighting ──
+    const sections = document.querySelectorAll('[id]');
+    const navLinks = document.querySelectorAll('.section-nav a');
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('data-section') === id);
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-100px 0px -60% 0px' });
+
+    ['grip-size', 'weight', 'head-size', 'skill-level', 'juniors'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) sectionObserver.observe(el);
+    });
+
+    // ── Grip Slider ──
+    const gripSlider = document.getElementById('gripSlider');
+    const gripValue = document.getElementById('gripValue');
+    const gripResultSize = document.getElementById('gripResultSize');
+    const gripResultNote = document.getElementById('gripResultNote');
+
+    const gripData = [
+      { max: 6.5, size: '#0 (4")', note: 'Smallest adult grip. Uncommon — mainly for very small hands or junior transition.' },
+      { max: 7.0, size: '#1 (4 1/8")', note: 'Common for smaller hands. Great if you like more wrist action and spin.' },
+      { max: 7.5, size: '#2 (4 1/4")', note: 'Most common for adult women. Good balance of control and comfort.' },
+      { max: 8.0, size: '#3 (4 3/8")', note: 'Most common for adult men. Solid grip without restricting wrist movement.' },
+      { max: 99,  size: '#4 (4 1/2")', note: 'Larger grip for bigger hands. Provides extra stability and cushion.' }
+    ];
+
+    gripSlider.addEventListener('input', () => {
+      const v = parseFloat(gripSlider.value);
+      gripValue.textContent = v.toFixed(1) + ' cm';
+      const match = gripData.find(d => v <= d.max);
+      if (match) {
+        gripResultSize.textContent = match.size;
+        gripResultNote.textContent = match.note;
+      }
+    });
+
+    // ── Weight table toggle ──
+    const weightToggle = document.getElementById('weightTableToggle');
+    const weightWrap = document.getElementById('weightTableWrap');
+
+    weightToggle.addEventListener('click', () => {
+      weightWrap.classList.toggle('open');
+      weightToggle.classList.toggle('open');
+    });
+
+    // ── Head size selector ──
+    const headData = {
+      small: {
+        title: 'Small — Surgical Precision',
+        desc: 'Compact hitting area designed for advanced players who generate their own power. Maximum precision and consistency for players with fast, clean technique.',
+        power: 30, control: 95, forgive: 25, spin: 45
+      },
+      mid: {
+        title: 'Midplus — The Sweet Spot',
+        desc: 'The most popular head size for intermediate to advanced players. Balanced combination of power and control with a forgiving sweet spot that still rewards clean hitting.',
+        power: 60, control: 70, forgive: 55, spin: 60
+      },
+      over: {
+        title: 'Oversize — Easy Power',
+        desc: 'Largest head size creates the strongest trampoline effect. The ball sinks deeper into the strings for more rebound and effortless power. Ideal for beginners and players seeking comfort.',
+        power: 90, control: 40, forgive: 90, spin: 70
+      }
+    };
+
+    function selectHeadSize(el) {
+      document.querySelectorAll('.headsize-option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+
+      const key = el.dataset.head;
+      const data = headData[key];
+      const detail = document.getElementById('headsizeDetail');
+
+      detail.classList.remove('show');
+      setTimeout(() => {
+        document.getElementById('headsizeDetailTitle').textContent = data.title;
+        document.getElementById('headsizeDetailDesc').textContent = data.desc;
+        document.getElementById('meterPower').style.width = data.power + '%';
+        document.getElementById('meterControl').style.width = data.control + '%';
+        document.getElementById('meterForgive').style.width = data.forgive + '%';
+        document.getElementById('meterSpin').style.width = data.spin + '%';
+        detail.classList.add('show');
+      }, 200);
+    }
+
+    // ── Level tabs ──
+    function selectLevel(level) {
+      document.querySelectorAll('.level-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.level-panel').forEach(p => p.classList.remove('active'));
+
+      event.currentTarget.classList.add('active');
+      document.getElementById('panel-' + level).classList.add('active');
+    }
+
+    // ── Balance indicator hover animation ──
+    const balanceIndicator = document.getElementById('balanceIndicator');
+    let balancePos = 50;
+    let balanceDir = 1;
+
+    function animateBalance() {
+      balancePos += 0.15 * balanceDir;
+      if (balancePos > 65) balanceDir = -1;
+      if (balancePos < 35) balanceDir = 1;
+      balanceIndicator.style.left = balancePos + '%';
+      requestAnimationFrame(animateBalance);
+    }
+
+    // Start only when visible
+    const balanceObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        animateBalance();
+        balanceObserver.disconnect();
+      }
+    }, { threshold: 0.5 });
+
+    balanceObserver.observe(document.querySelector('.balance-interactive'));
+  </script>
+</body>
+</html>
