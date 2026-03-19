@@ -308,6 +308,11 @@
       to { transform: translateX(-50%); }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none; }
+      .fade-up { transition: none; opacity: 1; transform: none; }
+    }
+
     /* ── SECTION COMMON ── */
     section { padding: 120px 80px; }
 
@@ -1525,7 +1530,7 @@
     </div>
     <div class="instagram-grid">
       <a href="https://www.instagram.com/p/DTMZLBlETB4/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
-        <img src="img/DTMZLBlETB4.jpg" alt="3 serve drills that hold up under pressure" width="640" height="1136" loading="lazy" />
+        <img src="img/DTMZLBlETB4.jpg" alt="3 serve drills that hold up under pressure" width="640" height="1136" loading="lazy" decoding="async" />
         <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">3 simple drills I use to build a serve that holds up under pressure</p>
@@ -1533,7 +1538,7 @@
         </div>
       </a>
       <a href="https://www.instagram.com/p/DSdBhfhD1WL/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
-        <img src="img/DSdBhfhD1WL.jpg" alt="3 serve drills" width="640" height="1136" loading="lazy" />
+        <img src="img/DSdBhfhD1WL.jpg" alt="3 serve drills" width="640" height="1136" loading="lazy" decoding="async" />
         <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">3 simple drills to build a serve that holds up under pressure</p>
@@ -1541,7 +1546,7 @@
         </div>
       </a>
       <a href="https://www.instagram.com/p/DS3yoV8j1ss/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
-        <img src="img/DS3yoV8j1ss.jpg" alt="Train contact point at home" width="640" height="1136" loading="lazy" />
+        <img src="img/DS3yoV8j1ss.jpg" alt="Train contact point at home" width="640" height="1136" loading="lazy" decoding="async" />
         <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">Train contact point at home. No court. No partner. No excuses.</p>
@@ -1549,7 +1554,7 @@
         </div>
       </a>
       <a href="https://www.instagram.com/p/DTOBHz8kih7/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
-        <img src="img/DTOBHz8kih7.jpg" alt="Spin technique exercise" width="640" height="1136" loading="lazy" />
+        <img src="img/DTOBHz8kih7.jpg" alt="Spin technique exercise" width="640" height="1136" loading="lazy" decoding="async" />
         <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">Simple technique exercise that improves your spin</p>
@@ -1559,7 +1564,7 @@
     </div>
     <div class="instagram-grid">
       <a href="https://www.instagram.com/p/DSxjKCFEePc/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
-        <img src="img/DSxjKCFEePc.jpg" alt="Warm-up routine" width="640" height="1136" loading="lazy" />
+        <img src="img/DSxjKCFEePc.jpg" alt="Warm-up routine" width="640" height="1136" loading="lazy" decoding="async" />
         <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">Warm-up isn't optional. It's the foundation of every good session.</p>
@@ -1567,7 +1572,7 @@
         </div>
       </a>
       <a href="https://www.instagram.com/p/DUBQh6SkQnX/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
-        <img src="img/DUBQh6SkQnX.jpg" alt="Net game made simple" width="640" height="1136" loading="lazy" />
+        <img src="img/DUBQh6SkQnX.jpg" alt="Net game made simple" width="640" height="1136" loading="lazy" decoding="async" />
         <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">Net game made simple. 5 steps. No panic. Clean volleys.</p>
@@ -1575,7 +1580,7 @@
         </div>
       </a>
       <a href="https://www.instagram.com/p/DSV8_JjEmLi/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
-        <img src="img/DSV8_JjEmLi.jpg" alt="Three serve drills" width="640" height="1136" loading="lazy" />
+        <img src="img/DSV8_JjEmLi.jpg" alt="Three serve drills" width="640" height="1136" loading="lazy" decoding="async" />
         <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">Three Essential Drills to Fix Your Tennis Serve</p>
@@ -1583,7 +1588,7 @@
         </div>
       </a>
       <a href="https://www.instagram.com/p/DUTmXMrEQgn/" target="_blank" rel="noopener noreferrer" class="instagram-card fade-up">
-        <img src="img/DUTmXMrEQgn.jpg" alt="Clean forehand" width="640" height="1136" loading="lazy" />
+        <img src="img/DUTmXMrEQgn.jpg" alt="Clean forehand" width="640" height="1136" loading="lazy" decoding="async" />
         <span class="instagram-type-badge" aria-hidden="true">▶ Reel</span>
         <div class="instagram-overlay">
           <p class="instagram-caption">No low swing. No robotic swing. Just a clean forehand.</p>
@@ -1679,10 +1684,11 @@
 
   <script>
     // Scroll animations
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(el => {
         if (el.isIntersecting) {
           el.target.classList.add('visible');
+          obs.unobserve(el.target);
         }
       });
     }, { threshold: 0.1 });
