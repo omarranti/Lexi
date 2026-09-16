@@ -1,6 +1,6 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/lexieprotennis.html" },
-    { "source": "/racket-guide", "destination": "/racket-guide.html" }
+  "redirects": [
+    { "source": "/lexieprotennis.html", "destination": "/", "permanent": true },
+    { "source": "/racket-guide.html", "destination": "/racket-guide", "permanent": true }
   ]
 }

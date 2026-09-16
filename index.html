@@ -4,6 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LX PRO TENNIS — Train With Purpose</title>
+  <meta name="description" content="Professional tennis coaching for juniors and adults — in person in Los Angeles and online worldwide. Video analysis, structured 4-week programs, and ongoing mentorship." />
+  <link rel="canonical" href="https://www.lexieprotennis.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="LX Pro Tennis" />
+  <meta property="og:title" content="LX Pro Tennis — Train With Purpose" />
+  <meta property="og:description" content="Professional tennis coaching for juniors and adults — in person in Los Angeles and online worldwide. Real progress, not random drills." />
+  <meta property="og:url" content="https://www.lexieprotennis.com/" />
+  <meta property="og:image" content="https://www.lexieprotennis.com/img/DUTmXMrEQgn.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#f7f5f1" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141414'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23f7f5f1' text-anchor='middle'%3ELX%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -50,6 +61,8 @@
       transition: padding 0.3s ease;
     }
 
+    nav.scrolled { padding-top: 16px; padding-bottom: 16px; }
+
     .nav-logo {
       font-family: var(--serif);
       font-size: 1.1rem;
@@ -85,6 +98,33 @@
       border-radius: 2px;
       transition: background 0.2s !important;
     }
+
+    /* ── MOBILE NAV TOGGLE ── */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      padding: 10px;
+      margin: -10px;
+      cursor: pointer;
+      color: var(--black);
+      line-height: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: currentColor;
+      transition: transform 0.3s ease, opacity 0.2s ease;
+    }
+
+    .nav-toggle span + span { margin-top: 5px; }
+
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
 
     .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; }
 
@@ -934,6 +974,10 @@
       flex-direction: column;
       gap: 32px;
       justify-content: center;
+      /* Grid/flex children default to min-width:auto, so the nowrap CTA inside
+         .inperson-contact forced this track wider than the viewport and gave
+         the whole page a horizontal scrollbar on phones. */
+      min-width: 0;
     }
 
     .inperson-right {
@@ -1237,7 +1281,31 @@
     /* ── MOBILE ── */
     @media (max-width: 900px) {
       nav { padding: 20px 24px; }
-      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      nav { flex-wrap: wrap; }
+      .nav-links {
+        display: none;
+        flex-basis: 100%;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 14px;
+        border-top: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-bottom: 1px solid var(--border); }
+      .nav-links a {
+        display: block;
+        padding: 15px 2px;
+        font-size: 0.78rem;
+        min-height: 44px;
+      }
+      .nav-links .nav-cta {
+        margin: 14px 0 4px;
+        text-align: center;
+        border-radius: 2px;
+        padding: 15px 22px;
+      }
+      .nav-links li:last-child { border-bottom: 0; }
       section { padding: 80px 24px; }
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-left { padding: 60px 24px; }
@@ -1252,6 +1320,14 @@
       .testimonials-grid { grid-template-columns: 1fr; }
       .inperson { grid-template-columns: 1fr; }
       .inperson-left { padding: 80px 24px; }
+      .inperson-contact {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+        text-align: center;
+      }
+      .inperson-contact .btn-primary { text-align: center; }
+      .contact-email { overflow-wrap: anywhere; }
       .inperson-right { min-height: 360px; padding: 40px 24px; }
       .email-section { padding: 80px 24px; }
       .email-form { flex-direction: column; }
@@ -1275,7 +1351,10 @@
   <!-- NAV -->
   <nav id="nav">
     <a href="#" class="nav-logo">LX Pro Tennis</a>
-    <ul class="nav-links">
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#programs">Programs</a></li>
       <li><a href="/racket-guide">Racket Guide</a></li>
@@ -1667,7 +1746,7 @@
     <h2 class="section-title">Get the Free Guide:<br><em>Perfect Tennis Racket</em></h2>
     <p class="email-sub">Not sure what racket is right for your game? <a href="/racket-guide" style="color:var(--accent);text-decoration:underline;">Read the full guide online</a> or download the PDF and get a professional breakdown — no fluff, just what matters.</p>
     <form class="email-form" onsubmit="handleSubmit(event)">
-      <input type="email" class="email-input" placeholder="your@email.com" required id="emailInput" />
+      <input type="email" class="email-input" placeholder="your@email.com" id="emailInput" aria-label="Your email address" />
       <button type="submit" class="email-btn">Download Guide</button>
     </form>
     <p class="email-note" id="formNote">Free. No spam. Unsubscribe anytime.</p>
@@ -1711,6 +1790,23 @@
   </footer>
 
   <script>
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+
+    // Close the menu after tapping a link
+    navMenu.addEventListener('click', (e) => {
+      if (e.target.closest('a')) {
+        navMenu.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
     // Scroll animations
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(el => {
@@ -1723,27 +1819,35 @@
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Nav shrink on scroll
+    // Nav shrink on scroll — toggles a class so the mobile padding
+    // from the media query isn't clobbered by an inline style.
+    const navEl = document.getElementById('nav');
+    let navTicking = false;
+
     window.addEventListener('scroll', () => {
-      const nav = document.getElementById('nav');
-      if (window.scrollY > 60) {
-        nav.style.padding = '16px 48px';
-      } else {
-        nav.style.padding = '24px 48px';
-      }
-    });
+      if (navTicking) return;
+      navTicking = true;
+      requestAnimationFrame(() => {
+        navEl.classList.toggle('scrolled', window.scrollY > 60);
+        navTicking = false;
+      });
+    }, { passive: true });
 
     // Email form handler
+    //
+    // NOTE: no mailing-list provider is wired up yet, so the address typed here
+    // is NOT stored or sent anywhere. The guide is delivered on-site instead of
+    // promising an email we can't actually send. To start collecting addresses,
+    // point the form at a provider (Mailchimp / ConvertKit / Formspree) by
+    // setting its endpoint as the form `action` and removing this handler.
     function handleSubmit(e) {
       e.preventDefault();
-      const email = document.getElementById('emailInput').value;
       const note = document.getElementById('formNote');
-      // In real implementation, send to backend / MailChimp / etc.
-      note.textContent = `✓ Check your inbox at ${email} — guide on its way!`;
+      note.textContent = '✓ Opening your guide…';
       note.style.color = 'var(--accent)';
-      document.getElementById('emailInput').value = '';
-      // Direct to PDF download
-      window.open('https://www.lexieprotennis.com/_files/ugd/487303_b115bbca605e4733b2bc48274c6ff9f4.pdf', '_blank');
+      // Same-tab navigation: window.open() from a form submit gets popup-blocked
+      // on mobile Safari, which made the button look dead.
+      window.location.href = '/racket-guide';
     }
   </script>
 </body>
