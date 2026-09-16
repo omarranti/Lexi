@@ -1399,7 +1399,8 @@
     </div>
     <div class="hero-right">
       <div class="hero-img-placeholder">
-        <video class="hero-video" autoplay muted loop playsinline disablepictureinpicture aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline disablepictureinpicture aria-hidden="true"
+               poster="img/inperson-poster.jpg">
           <source src="img/inperson.mp4" type="video/mp4">
         </video>
         <p class="hero-img-caption" style="position:relative;z-index:1;">"Real progress, not random drills."</p>
@@ -1440,8 +1441,9 @@
   <section class="about" id="about">
     <div class="about-visual fade-up">
       <div class="about-img-box">
-        <video class="about-video" autoplay muted loop playsinline disablepictureinpicture aria-hidden="true">
-          <source src="img/about.mp4" type="video/mp4">
+        <video class="about-video" data-lazy-video muted loop playsinline disablepictureinpicture aria-hidden="true"
+               poster="img/about-poster.jpg" preload="none">
+          <source data-src="img/about.mp4" type="video/mp4">
         </video>
         <div class="about-img-tag">On the court<br>and in your corner.</div>
       </div>
@@ -1726,8 +1728,9 @@
       </div>
     </div>
     <div class="inperson-right">
-      <video class="inperson-video" autoplay muted loop playsinline disablepictureinpicture aria-hidden="true">
-        <source src="img/inperson.mp4" type="video/mp4">
+      <video class="inperson-video" data-lazy-video muted loop playsinline disablepictureinpicture aria-hidden="true"
+             poster="img/inperson-poster.jpg" preload="none">
+        <source data-src="img/inperson.mp4" type="video/mp4">
       </video>
       <div class="location-card">
         <div class="location-city">Los Angeles</div>
@@ -1807,6 +1810,44 @@
         navToggle.setAttribute('aria-expanded', 'false');
       }
     });
+
+    // Background videos below the fold: hold off downloading them until the
+    // viewer is close, so they don't compete with the hero for bandwidth.
+    // They keep their poster frame until then, and if this never runs the
+    // poster is what stays on screen.
+    const lazyVideos = document.querySelectorAll('video[data-lazy-video]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (lazyVideos.length && !reduceMotion) {
+      const videoObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const video = entry.target;
+          video.querySelectorAll('source[data-src]').forEach(source => {
+            source.src = source.dataset.src;
+            source.removeAttribute('data-src');
+          });
+          video.load();
+          // A refused autoplay just leaves the poster up — not worth throwing.
+          video.play().catch(() => {});
+          obs.unobserve(video);
+        });
+      }, { rootMargin: '150px 0px' });
+
+      lazyVideos.forEach(v => videoObserver.observe(v));
+    }
+
+    if (reduceMotion) {
+      // The CSS already sets display:none on these; drop their sources so the
+      // hero stops streaming too.
+      document.querySelectorAll('.hero-video, .about-video, .inperson-video').forEach(video => {
+        video.pause();
+        video.removeAttribute('autoplay');
+        video.querySelectorAll('source').forEach(source => source.remove());
+        video.load();
+      });
+    }
+
     // Scroll animations
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(el => {
