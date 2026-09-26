@@ -39,6 +39,10 @@
 
     html { scroll-behavior: smooth; }
 
+    /* Fixed nav (54px) + sticky section nav (49px) sit over the top of the page,
+       so anchored sections need to stop clear of both. */
+    section[id] { scroll-margin-top: 118px; }
+
     body {
       background: var(--white);
       color: var(--black);
@@ -412,6 +416,140 @@
     .stagger-3 { transition-delay: 0.15s; }
     .stagger-4 { transition-delay: 0.2s; }
     .stagger-5 { transition-delay: 0.25s; }
+
+    /* ── ACE ADVISOR — racket matcher ── */
+    .advisor-section { background: var(--black); padding: 110px 80px; color: var(--white); }
+    .advisor-shell { max-width: 860px; margin: 0 auto; }
+    .advisor-head { text-align: center; margin-bottom: 48px; }
+
+    .advisor-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 300; line-height: 1.1;
+      color: var(--white); margin-top: 12px;
+    }
+    .advisor-title em { font-style: italic; color: var(--gold); }
+
+    .advisor-sub {
+      font-size: 0.95rem; line-height: 1.7;
+      color: rgba(247,245,241,0.6);
+      max-width: 52ch; margin: 18px auto 0;
+    }
+
+    .advisor-card {
+      background: rgba(247,245,241,0.04);
+      border: 1px solid rgba(247,245,241,0.14);
+      border-radius: 6px; padding: 44px 40px;
+    }
+
+    .advisor-progress { display: flex; gap: 6px; margin-bottom: 32px; }
+    .advisor-pip { height: 2px; flex: 1; background: rgba(247,245,241,0.15); transition: background 0.3s ease; }
+    .advisor-pip.done { background: var(--gold); }
+
+    .advisor-step-num {
+      font-family: var(--mono); font-size: 0.62rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+    }
+
+    .advisor-question {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 300; line-height: 1.25;
+      color: var(--white); margin-bottom: 28px;
+    }
+
+    .advisor-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+    .advisor-option {
+      text-align: left; background: transparent;
+      border: 1px solid rgba(247,245,241,0.2);
+      border-radius: 4px; padding: 18px 20px;
+      color: var(--white); font-family: var(--sans);
+      font-size: 0.92rem; cursor: pointer; min-height: 48px;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .advisor-option:hover, .advisor-option:focus-visible {
+      border-color: var(--gold); background: rgba(184,150,90,0.1);
+      transform: translateY(-2px); outline: none;
+    }
+
+    .advisor-option-note {
+      display: block; font-size: 0.78rem;
+      color: rgba(247,245,241,0.5);
+      margin-top: 5px; line-height: 1.5;
+    }
+
+    .advisor-back {
+      background: none; border: 0; color: rgba(247,245,241,0.45);
+      font-family: var(--mono); font-size: 0.66rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer; margin-top: 26px; padding: 8px 0; min-height: 44px;
+    }
+    .advisor-back:hover { color: var(--gold); }
+
+    .advisor-result-tag {
+      font-family: var(--mono); font-size: 0.62rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);
+    }
+    .advisor-result-name {
+      font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 300; color: var(--white); line-height: 1.15; margin: 10px 0 6px;
+    }
+    .advisor-result-brand {
+      font-family: var(--mono); font-size: 0.7rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,245,241,0.5);
+    }
+    .advisor-why { font-size: 0.95rem; line-height: 1.8; color: rgba(247,245,241,0.75); margin: 24px 0; }
+
+    .advisor-specs {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: rgba(247,245,241,0.14);
+      border: 1px solid rgba(247,245,241,0.14);
+      border-radius: 4px; overflow: hidden; margin-bottom: 28px;
+    }
+    .advisor-spec { background: #111; padding: 18px 14px; text-align: center; }
+    .advisor-spec-label {
+      font-family: var(--mono); font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,245,241,0.45);
+    }
+    .advisor-spec-value { font-family: var(--serif); font-size: 1.25rem; color: var(--white); margin-top: 6px; }
+
+    .advisor-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .advisor-buy {
+      display: inline-block; background: var(--gold); color: var(--black);
+      padding: 16px 32px; font-family: var(--mono); font-size: 0.7rem;
+      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+      border-radius: 2px; transition: background 0.2s; min-height: 48px;
+    }
+    .advisor-buy:hover { background: var(--gold-light); }
+
+    .advisor-restart {
+      background: transparent; border: 1px solid rgba(247,245,241,0.25);
+      color: var(--white); padding: 16px 28px; font-family: var(--mono);
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      border-radius: 2px; cursor: pointer; transition: border-color 0.2s; min-height: 48px;
+    }
+    .advisor-restart:hover { border-color: var(--gold); }
+
+    .advisor-runner { margin-top: 30px; padding-top: 24px; border-top: 1px solid rgba(247,245,241,0.12); }
+    .advisor-runner-label {
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(247,245,241,0.45); margin-bottom: 14px;
+    }
+    .advisor-runner-item {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+      padding: 11px 0; border-bottom: 1px solid rgba(247,245,241,0.07); text-decoration: none;
+    }
+    .advisor-runner-item:last-child { border-bottom: 0; }
+    .advisor-runner-name { font-family: var(--serif); font-size: 1.02rem; color: var(--white); }
+    .advisor-runner-why { font-size: 0.78rem; color: rgba(247,245,241,0.45); text-align: right; }
+
+    .advisor-disclosure {
+      font-size: 0.72rem; color: rgba(247,245,241,0.35);
+      line-height: 1.6; margin-top: 26px; text-align: center;
+    }
 
     /* ── SECTION: GRIP SIZE ── */
     .grip-section {
@@ -1515,6 +1653,14 @@
       .nav-links li:last-child { border-bottom: 0; }
 
       .guide-hero { padding: 100px 24px 60px; min-height: auto; }
+      .advisor-section { padding: 72px 20px; }
+      .advisor-card { padding: 30px 22px; }
+      .advisor-options { grid-template-columns: 1fr; }
+      .advisor-specs { grid-template-columns: repeat(2, 1fr); }
+      .advisor-actions { flex-direction: column; }
+      .advisor-buy, .advisor-restart { text-align: center; }
+      .advisor-runner-item { flex-direction: column; gap: 4px; }
+      .advisor-runner-why { text-align: left; }
       .hero-title { font-size: clamp(2.8rem, 10vw, 5rem); }
       .hero-sub { font-size: 1rem; line-height: 1.7; }
 
@@ -1646,7 +1792,8 @@
   <!-- STICKY NAV -->
   <div class="section-nav" id="sectionNav">
     <div class="section-nav-inner">
-      <a href="#grip-size" class="active" data-section="grip-size">Grip Size</a>
+      <a href="#advisor" class="active" data-section="advisor">Ace Advisor</a>
+      <a href="#grip-size" data-section="grip-size">Grip Size</a>
       <a href="#weight" data-section="weight">Weight</a>
       <a href="#head-size" data-section="head-size">Head Size</a>
       <a href="#skill-level" data-section="skill-level">Skill Level</a>
@@ -1657,6 +1804,24 @@
   <!-- ═══════════════════════════════════════ -->
   <!-- GRIP SIZE -->
   <!-- ═══════════════════════════════════════ -->
+  <!-- ACE ADVISOR -->
+  <section class="advisor-section" id="advisor">
+    <div class="advisor-shell">
+      <div class="advisor-head">
+        <div class="section-tag" style="justify-content:center;color:var(--gold);">Ace Advisor</div>
+        <h2 class="advisor-title">Find Your <em>Racket Match</em></h2>
+        <p class="advisor-sub">Six questions about how you actually play. No jargon &mdash; you&rsquo;ll get the spec that suits your game, and the rackets that fit it.</p>
+      </div>
+
+      <div class="advisor-card">
+        <div class="advisor-progress" id="advisorProgress" aria-hidden="true"></div>
+        <div id="advisorBody" role="group" aria-live="polite"></div>
+      </div>
+
+      <p class="advisor-disclosure">Racket links are Amazon affiliate links &mdash; if you buy through them I earn a small commission at no extra cost to you.</p>
+    </div>
+  </section>
+
   <section class="grip-section" id="grip-size">
     <div class="fade-up">
       <div class="section-tag">Section 01</div>
@@ -2149,6 +2314,192 @@
       const el = document.getElementById(id);
       if (el) sectionObserver.observe(el);
     });
+
+
+    // ── ACE ADVISOR ───────────────────────────────────────────────────────────
+    //
+    // TO ADD OR CHANGE RACKETS: edit the RACKETS array below. Each racket scores
+    // 1-10 on five traits; the quiz builds a target profile from the answers and
+    // picks the closest match. `link` is the Amazon affiliate URL — swap in your
+    // own amzn.to links and the recommendations start earning immediately.
+    //
+    const RACKETS = [
+      {
+        name: 'Oversize Power Frame', brand: 'e.g. Wilson Clash 108 / Babolat Boost',
+        head: '108 in²', weight: '280 g', balance: 'Head-heavy', stiff: 'Low',
+        power: 9, control: 3, spin: 6, comfort: 9, maneuver: 8,
+        why: 'A big head and light frame do the work for you. The ball sinks into the strings and comes back with depth you did not have to generate yourself — which is exactly what you want while the technique is still coming together.',
+        link: 'https://www.amazon.com/s?k=oversize+tennis+racquet+beginner&tag=lexieprotenni-20'
+      },
+      {
+        name: 'Comfort All-Rounder', brand: 'e.g. Wilson Clash 100 / Prince Textreme',
+        head: '100 in²', weight: '295 g', balance: 'Even', stiff: 'Very low',
+        power: 7, control: 6, spin: 7, comfort: 10, maneuver: 7,
+        why: 'The softest frames on the market. If your elbow or shoulder has been complaining, this flex absorbs the shock that a stiff frame sends straight up your arm — without giving up much on power.',
+        link: 'https://www.amazon.com/s?k=arm+friendly+flexible+tennis+racquet&tag=lexieprotenni-20'
+      },
+      {
+        name: 'Spin Weapon', brand: 'e.g. Babolat Pure Aero / Head Extreme',
+        head: '100 in²', weight: '300 g', balance: 'Head-light', stiff: 'High',
+        power: 8, control: 6, spin: 10, comfort: 5, maneuver: 7,
+        why: 'Open string pattern and a stiff, fast frame — built to bite the ball and throw heavy topspin. If you swing fast and low-to-high and want the ball dropping inside the baseline, this is the category.',
+        link: 'https://www.amazon.com/s?k=babolat+pure+aero&tag=lexieprotenni-20'
+      },
+      {
+        name: 'Modern Player’s Frame', brand: 'e.g. Head Graphene Speed MP / Yonex Ezone',
+        head: '98-100 in²', weight: '300 g', balance: 'Head-light', stiff: 'Medium',
+        power: 6, control: 8, spin: 8, comfort: 7, maneuver: 8,
+        why: 'The balance point most intermediate-to-advanced players land on. Enough control to place the ball, enough help that you are not fighting the racket on every stroke, and quick enough to handle fast hands at the net.',
+        link: 'https://www.amazon.com/s?k=HEAD+Graphene+XT+Speed+MP+Tennis+Racquet&tag=lexieprotenni-20'
+      },
+      {
+        name: 'Control Frame', brand: 'e.g. Wilson Blade 98 / Yonex VCore Pro',
+        head: '98 in²', weight: '305 g', balance: 'Head-light', stiff: 'Low-medium',
+        power: 4, control: 9, spin: 8, comfort: 8, maneuver: 6,
+        why: 'A tighter head and a flexible, connected feel. You supply the power, the racket supplies the precision — the right trade once your swing is repeatable and you are missing long rather than short.',
+        link: 'https://www.amazon.com/s?k=wilson+blade+98&tag=lexieprotenni-20'
+      },
+      {
+        name: 'Player’s Stick', brand: 'e.g. Wilson Pro Staff 97 / Head Prestige',
+        head: '97 in²', weight: '315 g', balance: 'Head-light', stiff: 'Low',
+        power: 3, control: 10, spin: 7, comfort: 7, maneuver: 5,
+        why: 'Small head, heavy, unforgiving off-centre — and absolutely precise when you find the middle. Only worth it if you generate your own pace and your contact point is consistent.',
+        link: 'https://www.amazon.com/s?k=wilson+pro+staff+97&tag=lexieprotenni-20'
+      }
+    ];
+
+    const ADVISOR_Q = [
+      { key: 'level', q: 'Where are you in your tennis right now?', opts: [
+        { label: 'Just starting out', note: 'Still learning the strokes', v: { power: 9, control: 3, spin: 5, comfort: 9, maneuver: 8 } },
+        { label: 'Getting there', note: 'Rallies work, matches are inconsistent', v: { power: 7, control: 6, spin: 7, comfort: 8, maneuver: 7 } },
+        { label: 'Solid club player', note: 'I compete and hold my own', v: { power: 5, control: 8, spin: 8, comfort: 7, maneuver: 7 } },
+        { label: 'Advanced', note: 'I generate my own pace', v: { power: 3, control: 10, spin: 8, comfort: 6, maneuver: 6 } }
+      ]},
+      { key: 'style', q: 'How do you actually win points?', opts: [
+        { label: 'From the baseline', note: 'Grinding, consistency, heavy balls', v: { power: 6, control: 7, spin: 9, comfort: 7, maneuver: 6 } },
+        { label: 'All-court', note: 'A bit of everything depending on the day', v: { power: 6, control: 7, spin: 7, comfort: 7, maneuver: 8 } },
+        { label: 'Serve and attack', note: 'Short points, I come forward', v: { power: 7, control: 8, spin: 6, comfort: 6, maneuver: 9 } },
+        { label: 'Still figuring it out', note: 'No settled game yet', v: { power: 8, control: 5, spin: 6, comfort: 8, maneuver: 8 } }
+      ]},
+      { key: 'need', q: 'What does your game need most?', opts: [
+        { label: 'More power', note: 'My ball sits up and lets them attack', v: { power: 10, control: 4, spin: 6, comfort: 7, maneuver: 7 } },
+        { label: 'More control', note: 'I hit long or wide too often', v: { power: 3, control: 10, spin: 7, comfort: 7, maneuver: 6 } },
+        { label: 'More spin', note: 'I want the ball to dip and kick', v: { power: 6, control: 7, spin: 10, comfort: 6, maneuver: 7 } },
+        { label: 'More comfort', note: 'My arm aches after playing', v: { power: 6, control: 6, spin: 6, comfort: 10, maneuver: 7 } }
+      ]},
+      { key: 'swing', q: 'How would you describe your swing?', opts: [
+        { label: 'Short and compact', note: 'I block and redirect more than I swing', v: { power: 9, control: 5, spin: 5, comfort: 8, maneuver: 8 } },
+        { label: 'Medium', note: 'A normal, controlled swing', v: { power: 6, control: 7, spin: 7, comfort: 7, maneuver: 7 } },
+        { label: 'Long and fast', note: 'I take a full cut at the ball', v: { power: 3, control: 9, spin: 9, comfort: 6, maneuver: 6 } }
+      ]},
+      { key: 'arm', q: 'Any elbow, wrist or shoulder trouble?', opts: [
+        { label: 'Yes, or I have had it before', note: 'Comfort matters a lot to me', v: { power: 6, control: 6, spin: 6, comfort: 10, maneuver: 7 }, w: 1.6 },
+        { label: 'No, my arm is fine', note: 'No history of pain', v: { power: 6, control: 7, spin: 7, comfort: 5, maneuver: 7 } }
+      ]},
+      { key: 'strength', q: 'Last one — how does a heavier racket feel in your hand?', opts: [
+        { label: 'Tiring', note: 'I want something light and easy to swing', v: { power: 8, control: 5, spin: 6, comfort: 8, maneuver: 10 } },
+        { label: 'Fine', note: 'I can handle a normal weight', v: { power: 6, control: 7, spin: 7, comfort: 7, maneuver: 7 } },
+        { label: 'I like it heavy', note: 'More mass feels more stable to me', v: { power: 4, control: 9, spin: 8, comfort: 7, maneuver: 4 } }
+      ]}
+    ];
+
+    const TRAITS = ['power', 'control', 'spin', 'comfort', 'maneuver'];
+    const advisorBody = document.getElementById('advisorBody');
+    const advisorProgress = document.getElementById('advisorProgress');
+    let advisorStep = 0;
+    let advisorAnswers = [];
+
+    const esc = str => String(str).replace(/[&<>"']/g, c =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+    function renderProgress() {
+      advisorProgress.innerHTML = ADVISOR_Q
+        .map((_, i) => `<div class="advisor-pip${i < advisorStep ? ' done' : ''}"></div>`)
+        .join('');
+    }
+
+    function renderQuestion() {
+      const step = ADVISOR_Q[advisorStep];
+      renderProgress();
+      advisorBody.innerHTML = `
+        <div class="advisor-step-num">Question ${advisorStep + 1} of ${ADVISOR_Q.length}</div>
+        <h3 class="advisor-question">${esc(step.q)}</h3>
+        <div class="advisor-options">
+          ${step.opts.map((o, i) => `
+            <button class="advisor-option" type="button" data-i="${i}">
+              ${esc(o.label)}
+              <span class="advisor-option-note">${esc(o.note)}</span>
+            </button>`).join('')}
+        </div>
+        ${advisorStep > 0 ? '<button class="advisor-back" type="button" id="advisorBack">&larr; Back</button>' : ''}
+      `;
+      advisorBody.querySelectorAll('.advisor-option').forEach(btn => {
+        btn.addEventListener('click', () => {
+          advisorAnswers[advisorStep] = step.opts[+btn.dataset.i];
+          advisorStep++;
+          advisorStep < ADVISOR_Q.length ? renderQuestion() : renderResult();
+        });
+      });
+      const back = document.getElementById('advisorBack');
+      if (back) back.addEventListener('click', () => { advisorStep--; renderQuestion(); });
+    }
+
+    function scoreRackets() {
+      // Weighted average of the chosen answers gives the player's target profile.
+      const target = {};
+      TRAITS.forEach(t => {
+        let sum = 0, wsum = 0;
+        advisorAnswers.forEach(a => {
+          const w = a.w || 1;
+          sum += a.v[t] * w;
+          wsum += w;
+        });
+        target[t] = sum / wsum;
+      });
+      // Closest racket by squared distance across the five traits.
+      return RACKETS
+        .map(r => ({
+          racket: r,
+          dist: TRAITS.reduce((d, t) => d + Math.pow(r[t] - target[t], 2), 0)
+        }))
+        .sort((a, b) => a.dist - b.dist);
+    }
+
+    function renderResult() {
+      const ranked = scoreRackets();
+      const top = ranked[0].racket;
+      const others = ranked.slice(1, 3).map(x => x.racket);
+      advisorProgress.innerHTML = ADVISOR_Q.map(() => '<div class="advisor-pip done"></div>').join('');
+      advisorBody.innerHTML = `
+        <div class="advisor-result-tag">Your match</div>
+        <h3 class="advisor-result-name">${esc(top.name)}</h3>
+        <div class="advisor-result-brand">${esc(top.brand)}</div>
+        <p class="advisor-why">${esc(top.why)}</p>
+        <div class="advisor-specs">
+          <div class="advisor-spec"><div class="advisor-spec-label">Head Size</div><div class="advisor-spec-value">${esc(top.head)}</div></div>
+          <div class="advisor-spec"><div class="advisor-spec-label">Weight</div><div class="advisor-spec-value">${esc(top.weight)}</div></div>
+          <div class="advisor-spec"><div class="advisor-spec-label">Balance</div><div class="advisor-spec-value">${esc(top.balance)}</div></div>
+          <div class="advisor-spec"><div class="advisor-spec-label">Stiffness</div><div class="advisor-spec-value">${esc(top.stiff)}</div></div>
+        </div>
+        <div class="advisor-actions">
+          <a class="advisor-buy" href="${esc(top.link)}" target="_blank" rel="noopener noreferrer sponsored">See These On Amazon</a>
+          <button class="advisor-restart" type="button" id="advisorRestart">Start Over</button>
+        </div>
+        <div class="advisor-runner">
+          <div class="advisor-runner-label">Also worth a look</div>
+          ${others.map(r => `
+            <a class="advisor-runner-item" href="${esc(r.link)}" target="_blank" rel="noopener noreferrer sponsored">
+              <span class="advisor-runner-name">${esc(r.name)}</span>
+              <span class="advisor-runner-why">${esc(r.head)} &middot; ${esc(r.weight)}</span>
+            </a>`).join('')}
+        </div>
+      `;
+      document.getElementById('advisorRestart').addEventListener('click', () => {
+        advisorStep = 0; advisorAnswers = []; renderQuestion();
+      });
+    }
+
+    if (advisorBody) renderQuestion();
 
     // ── Grip Slider ──
     const gripSlider = document.getElementById('gripSlider');
