@@ -1477,6 +1477,85 @@
       max-width: 500px;
     }
 
+    /* ── WHAT THE PROS PLAY ── */
+    .pros-section { background: var(--cream); padding: 110px 80px; }
+    .pros-shell { max-width: 1100px; margin: 0 auto; }
+
+    .pros-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px;
+      margin-top: 48px;
+    }
+
+    .pros-col-head {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--black);
+      margin-bottom: 4px;
+    }
+
+    .pro-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 15px 4px;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      transition: background 0.18s, padding-left 0.18s;
+    }
+
+    .pro-row:hover { background: rgba(45,90,61,0.06); padding-left: 10px; }
+
+    .pro-rank {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--gold);
+      width: 20px;
+      flex-shrink: 0;
+    }
+
+    .pro-info { flex: 1; min-width: 0; }
+
+    .pro-name {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--black);
+      line-height: 1.25;
+    }
+
+    .pro-country {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      margin-left: 7px;
+    }
+
+    .pro-racket {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    .pros-note {
+      font-size: 0.8rem;
+      line-height: 1.75;
+      color: var(--mid);
+      max-width: 68ch;
+      margin: 44px auto 0;
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
     /* ── CTA ── */
     .guide-cta {
       text-align: center;
@@ -1654,6 +1733,8 @@
 
       .guide-hero { padding: 100px 24px 60px; min-height: auto; }
       .advisor-section { padding: 72px 20px; }
+      .pros-section { padding: 72px 20px; }
+      .pros-grid { grid-template-columns: 1fr; gap: 40px; }
       .advisor-card { padding: 30px 22px; }
       .advisor-options { grid-template-columns: 1fr; }
       .advisor-specs { grid-template-columns: repeat(2, 1fr); }
@@ -1798,6 +1879,7 @@
       <a href="#head-size" data-section="head-size">Head Size</a>
       <a href="#skill-level" data-section="skill-level">Skill Level</a>
       <a href="#juniors" data-section="juniors">Juniors</a>
+      <a href="#pros" data-section="pros">What Pros Play</a>
     </div>
   </div>
 
@@ -2201,6 +2283,168 @@
   </section>
 
   <!-- ═══════════════════════════════════════ -->
+  <!-- WHAT THE PROS PLAY -->
+  <section class="pros-section" id="pros">
+    <div class="pros-shell">
+      <div class="section-header" style="text-align:center;">
+        <div class="section-tag" style="justify-content:center;">What The Pros Play</div>
+        <h2 class="section-title" style="margin-top:12px;">The Top 10,<br><em>And Their Rackets</em></h2>
+        <p class="section-sub" style="margin-left:auto;margin-right:auto;">Rankings correct as of late September 2026. Tap any player to see their frame.</p>
+      </div>
+
+      <div class="pros-grid">
+        <div class="pros-col">
+          <div class="pros-col-head">ATP — Men’s Top 10</div>
+          <a class="pro-row" href="https://www.amazon.com/s?k=head+speed+mp+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">01</span>
+            <span class="pro-info">
+              <span class="pro-name">Jannik Sinner<span class="pro-country">ITA</span></span>
+              <span class="pro-racket">Head Speed MP</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=head+gravity+pro+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">02</span>
+            <span class="pro-info">
+              <span class="pro-name">Alexander Zverev<span class="pro-country">GER</span></span>
+              <span class="pro-racket">Head Gravity Pro</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=babolat+pure+aero+98+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">03</span>
+            <span class="pro-info">
+              <span class="pro-name">Carlos Alcaraz<span class="pro-country">ESP</span></span>
+              <span class="pro-racket">Babolat Pure Aero 98</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=yonex+ezone+98+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">04</span>
+            <span class="pro-info">
+              <span class="pro-name">Ben Shelton<span class="pro-country">USA</span></span>
+              <span class="pro-racket">Yonex EZONE 98</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=babolat+pure+aero+98+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">05</span>
+            <span class="pro-info">
+              <span class="pro-name">Félix Auger-Aliassime<span class="pro-country">CAN</span></span>
+              <span class="pro-racket">Babolat Pure Aero 98</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=head+radical+pro+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">06</span>
+            <span class="pro-info">
+              <span class="pro-name">Flavio Cobolli<span class="pro-country">ITA</span></span>
+              <span class="pro-racket">Head Radical Pro</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=tecnifibre+tfight+305+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">07</span>
+            <span class="pro-info">
+              <span class="pro-name">Daniil Medvedev</span>
+              <span class="pro-racket">Tecnifibre T-Fight 305</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=yonex+vcore+pro+97+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">08</span>
+            <span class="pro-info">
+              <span class="pro-name">Frances Tiafoe<span class="pro-country">USA</span></span>
+              <span class="pro-racket">Yonex VCORE Pro 97</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=babolat+pure+aero+98+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">09</span>
+            <span class="pro-info">
+              <span class="pro-name">Arthur Fils<span class="pro-country">FRA</span></span>
+              <span class="pro-racket">Babolat Pure Aero 98</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=wilson+blade+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">10</span>
+            <span class="pro-info">
+              <span class="pro-name">Alex de Minaur<span class="pro-country">AUS</span></span>
+              <span class="pro-racket">Wilson — pro stock, closest retail is the Blade</span>
+            </span>
+          </a>
+        </div>
+        <div class="pros-col">
+          <div class="pros-col-head">WTA — Women’s Top 10</div>
+          <a class="pro-row" href="https://www.amazon.com/s?k=yonex+vcore+100+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">01</span>
+            <span class="pro-info">
+              <span class="pro-name">Elena Rybakina<span class="pro-country">KAZ</span></span>
+              <span class="pro-racket">Yonex VCORE 100</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=wilson+blade+98+v9+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">02</span>
+            <span class="pro-info">
+              <span class="pro-name">Aryna Sabalenka</span>
+              <span class="pro-racket">Wilson Blade 98 v9</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=yonex+ezone+98+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">03</span>
+            <span class="pro-info">
+              <span class="pro-name">Jessica Pegula<span class="pro-country">USA</span></span>
+              <span class="pro-racket">Yonex EZONE 98</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=head+boom+mp+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">04</span>
+            <span class="pro-info">
+              <span class="pro-name">Coco Gauff<span class="pro-country">USA</span></span>
+              <span class="pro-racket">Head Boom MP</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=wilson+blade+98+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">05</span>
+            <span class="pro-info">
+              <span class="pro-name">Mirra Andreeva</span>
+              <span class="pro-racket">Wilson — pro stock, painted as the Blade 98</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=yonex+ezone+98L+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">06</span>
+            <span class="pro-info">
+              <span class="pro-name">Linda Nosková<span class="pro-country">CZE</span></span>
+              <span class="pro-racket">Yonex EZONE 98L</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=diadem+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">07</span>
+            <span class="pro-info">
+              <span class="pro-name">Elina Svitolina<span class="pro-country">UKR</span></span>
+              <span class="pro-racket">Diadem</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=head+speed+mp+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">08</span>
+            <span class="pro-info">
+              <span class="pro-name">Karolína Muchová<span class="pro-country">CZE</span></span>
+              <span class="pro-racket">Head Speed MP</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=tecnifibre+tfight+300+isoflex+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">09</span>
+            <span class="pro-info">
+              <span class="pro-name">Iga Świątek<span class="pro-country">POL</span></span>
+              <span class="pro-racket">Tecnifibre T-Fight 300 Isoflex</span>
+            </span>
+          </a>
+          <a class="pro-row" href="https://www.amazon.com/s?k=wilson+ultra+v5+tennis+racquet&tag=lexieprotenni-20" target="_blank" rel="noopener noreferrer sponsored">
+            <span class="pro-rank">10</span>
+            <span class="pro-info">
+              <span class="pro-name">Marta Kostyuk<span class="pro-country">UKR</span></span>
+              <span class="pro-racket">Wilson Ultra v5</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <p class="pros-note"><strong>One honest caveat.</strong> Professionals rarely play the racket you can buy. Most use &ldquo;pro stock&rdquo; frames &mdash; often older moulds painted to look like the current retail model, then weighted and balanced to their own spec. These are the frames each player endorses and the retail version you can actually get. Treat them as inspiration, not a prescription: the right racket for you is the one that fits <em>your</em> game, which is what the Ace Advisor above is for.</p>
+    </div>
+  </section>
+
   <!-- CTA -->
   <!-- ═══════════════════════════════════════ -->
   <section class="guide-cta">
@@ -2310,7 +2554,7 @@
       });
     }, { threshold: 0.3, rootMargin: '-100px 0px -60% 0px' });
 
-    ['grip-size', 'weight', 'head-size', 'skill-level', 'juniors'].forEach(id => {
+    ['advisor', 'grip-size', 'weight', 'head-size', 'skill-level', 'juniors', 'pros'].forEach(id => {
       const el = document.getElementById(id);
       if (el) sectionObserver.observe(el);
     });
