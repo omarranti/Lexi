@@ -761,6 +761,119 @@
       line-height: 1.65;
     }
 
+    /* Turnaround badge — the strongest differentiator, so it sits up near the price */
+    .program-turnaround {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: -14px;
+    }
+
+    .program-turnaround::before {
+      content: '';
+      width: 18px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .program-card.featured .program-turnaround { color: var(--gold); }
+
+    .program-save {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── TRAIN ON YOUR OWN ── */
+    .selfserve { background: var(--cream); }
+
+    .selfserve-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    /* ── EQUIPMENT ── */
+    .equipment { background: var(--white); }
+
+    .equipment-panel {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .equipment-left {
+      padding: 64px 56px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .equipment-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--black);
+    }
+
+    .equipment-title em { font-style: italic; color: var(--accent); }
+
+    .equipment-desc {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--mid);
+      max-width: 42ch;
+    }
+
+    .equipment-right {
+      background: var(--black);
+      padding: 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .equipment-tool {
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(247,245,241,0.12);
+    }
+
+    .equipment-tool:last-of-type { border-bottom: 0; padding-bottom: 0; }
+
+    .equipment-tool-num {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+
+    .equipment-tool-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--white);
+      line-height: 1.3;
+      margin-top: 4px;
+    }
+
+    .equipment-tool-desc {
+      font-size: 0.8rem;
+      color: rgba(247,245,241,0.55);
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+
     /* ── TESTIMONIALS ── */
     .testimonials {
       background: var(--black);
@@ -1313,6 +1426,10 @@
       .about { grid-template-columns: 1fr; gap: 48px; }
       .about { padding: 80px 24px; }
       .programs-grid { grid-template-columns: 1fr; }
+      .selfserve-grid { grid-template-columns: 1fr; }
+      .equipment-panel { grid-template-columns: 1fr; }
+      .equipment-left { padding: 56px 24px; }
+      .equipment-right { padding: 48px 24px; }
       .programs-header { flex-direction: column; gap: 16px; align-items: flex-start; }
       .programs-header-right { text-align: left; }
       .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -1356,7 +1473,8 @@
     </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
-      <li><a href="#programs">Programs</a></li>
+      <li><a href="#programs">Work With Me</a></li>
+      <li><a href="#course">Serve Course</a></li>
       <li><a href="/racket-guide">Racket Guide</a></li>
       <li><a href="#process">How It Works</a></li>
       <li><a href="#instagram">Content</a></li>
@@ -1490,62 +1608,154 @@
   <section class="programs" id="programs">
     <div class="programs-header">
       <div>
-        <div class="section-tag">Online Programs</div>
-        <h2 class="section-title">Choose Your<br><em>Level of Coaching</em></h2>
+        <div class="section-tag">Work With Me</div>
+        <h2 class="section-title">Send Your Footage,<br><em>Get Real Answers</em></h2>
       </div>
-      <p class="programs-header-right">From a one-time technical breakdown to full mentorship — your progress starts here.</p>
+      <p class="programs-header-right">Every option starts with your own video. No generic advice — corrections on your game, from your footage.</p>
     </div>
     <div class="programs-grid">
 
+      <!-- NOTE: replace each href below with your Stripe Payment Link when ready. -->
+
       <!-- Card 1 -->
       <div class="program-card fade-up">
-        <div class="program-tag">Starter</div>
-        <div class="program-price"><sup>$</sup>75</div>
-        <div class="program-name">One-Time Video Analysis</div>
-        <p class="program-desc">A complete technical breakdown of your game — perfect if you're stuck or want professional eyes before committing to a program.</p>
+        <div class="program-tag">Written Breakdown</div>
+        <div class="program-price"><sup>$</sup>39</div>
+        <div class="program-turnaround">24&ndash;48 hours</div>
+        <div class="program-name">Video Analysis</div>
+        <p class="program-desc">Send up to 10 minutes of footage. I break down what&rsquo;s costing you points and exactly how to fix it.</p>
         <ul class="program-features">
           <li class="program-feature">Up to 10 minutes of footage reviewed</li>
-          <li class="program-feature">Stroke mechanics & contact point analysis</li>
-          <li class="program-feature">Footwork & positioning review</li>
-          <li class="program-feature">Specific technical corrections</li>
-          <li class="program-feature">Custom drills to fix your issue</li>
-          <li class="program-feature">Immediate action steps</li>
+          <li class="program-feature">Stroke mechanics &amp; contact point</li>
+          <li class="program-feature">Footwork &amp; positioning review</li>
+          <li class="program-feature">Written corrections, point by point</li>
+          <li class="program-feature">Specific drills to fix each issue</li>
+          <li class="program-feature">Back within 24&ndash;48 hours</li>
         </ul>
-        <a href="mailto:lexieprocollab@gmail.com?subject=Video Analysis Inquiry" class="program-cta">Get Started</a>
+        <a href="mailto:lexieprocollab@gmail.com?subject=Video Analysis - $39" class="program-cta">Get My Analysis</a>
       </div>
 
       <!-- Card 2 (featured) -->
       <div class="program-card featured fade-up">
         <div class="program-tag">Most Popular</div>
-        <div class="program-price"><sup>$</sup>197</div>
-        <div class="program-name">4-Week Performance Program</div>
-        <p class="program-desc">Structured improvement with weekly feedback and real accountability. Built for players serious about making tangible progress in a month.</p>
+        <div class="program-price"><sup>$</sup>89</div>
+        <div class="program-turnaround">1&ndash;3 business days</div>
+        <div class="program-name">Personal Video Report</div>
+        <p class="program-desc">I record a video walking through your footage &mdash; so you see and hear every correction, not just read it.</p>
         <ul class="program-features">
-          <li class="program-feature">Weekly video analysis & feedback</li>
-          <li class="program-feature">Structured 4-week training plan</li>
-          <li class="program-feature">Personalized drill progressions</li>
-          <li class="program-feature">Technical & tactical guidance</li>
-          <li class="program-feature">Progress tracking each week</li>
-          <li class="program-feature">Direct messaging access</li>
+          <li class="program-feature">Everything in the written analysis</li>
+          <li class="program-feature">A video I record just for you</li>
+          <li class="program-feature">Your key moments, frame by frame</li>
+          <li class="program-feature">I demonstrate the drills myself</li>
+          <li class="program-feature">Watch it back as often as you need</li>
+          <li class="program-feature">Back within 1&ndash;3 business days</li>
         </ul>
-        <a href="mailto:lexieprocollab@gmail.com?subject=4-Week Program Inquiry" class="program-cta">Enroll Now</a>
+        <a href="mailto:lexieprocollab@gmail.com?subject=Personal Video Report - $89" class="program-cta">Get My Report</a>
       </div>
 
       <!-- Card 3 -->
       <div class="program-card fade-up">
-        <div class="program-tag">Elite</div>
-        <div class="program-price"><sup>$</sup>397</div>
-        <div class="program-name">Competitive Edge Mentorship</div>
-        <p class="program-desc">Full coach involvement for competitive players who care about results. Not just video review — an active partner in your development.</p>
+        <div class="program-tag">Full Breakdown + Live Call</div>
+        <div class="program-price"><sup>$</sup>179</div>
+        <div class="program-turnaround">Includes 30&ndash;45 min on Zoom</div>
+        <div class="program-name">Match Breakdown &amp; Strategy</div>
+        <p class="program-desc">The complete picture: your match broken down, then we sit down together and work through the tactics and the mental side.</p>
         <ul class="program-features">
-          <li class="program-feature">Ongoing weekly video analysis</li>
-          <li class="program-feature">Match strategy & game planning</li>
-          <li class="program-feature">Mental performance coaching</li>
-          <li class="program-feature">Tournament preparation</li>
-          <li class="program-feature">Priority response & check-ins</li>
-          <li class="program-feature">Full season development arc</li>
+          <li class="program-feature">Full match footage breakdown</li>
+          <li class="program-feature">Corrections recorded from the court</li>
+          <li class="program-feature">30&ndash;45 minute live Zoom session</li>
+          <li class="program-feature">Match strategy &amp; game planning</li>
+          <li class="program-feature">The mental game &amp; big moments</li>
+          <li class="program-feature">Your questions answered live</li>
         </ul>
-        <a href="mailto:lexieprocollab@gmail.com?subject=Mentorship Program Inquiry" class="program-cta">Apply Now</a>
+        <a href="mailto:lexieprocollab@gmail.com?subject=Match Breakdown and Strategy - $179" class="program-cta">Book My Session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAIN ON YOUR OWN -->
+  <section class="selfserve" id="course">
+    <div class="programs-header">
+      <div>
+        <div class="section-tag">Train On Your Own</div>
+        <h2 class="section-title">The Serve Course,<br><em>At Your Own Pace</em></h2>
+      </div>
+      <p class="programs-header-right">Everything I teach about the serve, structured so you can work through it without me &mdash; or with me checking in.</p>
+    </div>
+    <div class="selfserve-grid">
+
+      <!-- Course only -->
+      <div class="program-card fade-up">
+        <div class="program-tag">Self-Paced</div>
+        <div class="program-price"><sup>$</sup>79</div>
+        <div class="program-turnaround">Instant access</div>
+        <div class="program-name">The Serve Course</div>
+        <p class="program-desc">My complete serve method, broken into steps you can work through on your own schedule. Yours to keep.</p>
+        <ul class="program-features">
+          <li class="program-feature">Full serve technique course</li>
+          <li class="program-feature">Grip, toss, stance and swing path</li>
+          <li class="program-feature">Drills you can do alone</li>
+          <li class="program-feature">Work at your own pace</li>
+          <li class="program-feature">Lifetime access</li>
+        </ul>
+        <a href="mailto:lexieprocollab@gmail.com?subject=The Serve Course - $79" class="program-cta">Get The Course</a>
+      </div>
+
+      <!-- Course + report -->
+      <div class="program-card featured fade-up">
+        <div class="program-tag">Best Value</div>
+        <div class="program-price"><sup>$</sup>129</div>
+        <div class="program-save">Save $39</div>
+        <div class="program-name">Serve Course + Video Report</div>
+        <p class="program-desc">The course, plus my eyes on your serve &mdash; so you know exactly which part of it to work on instead of guessing.</p>
+        <ul class="program-features">
+          <li class="program-feature">The full serve course ($79)</li>
+          <li class="program-feature">A personal video report ($89)</li>
+          <li class="program-feature">See exactly where you&rsquo;re losing power</li>
+          <li class="program-feature">Know which lessons to focus on first</li>
+          <li class="program-feature">Lifetime access to the course</li>
+        </ul>
+        <a href="mailto:lexieprocollab@gmail.com?subject=Serve Course plus Video Report - $129" class="program-cta">Get Both</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPMENT -->
+  <section class="equipment" id="equipment">
+    <div class="programs-header">
+      <div>
+        <div class="section-tag">Free Resource</div>
+        <h2 class="section-title">The Right Racket<br><em>For Your Game</em></h2>
+      </div>
+      <p class="programs-header-right">The wrong racket holds back good technique. This one is free &mdash; no email, no signup.</p>
+    </div>
+    <div class="equipment-panel fade-up">
+      <div class="equipment-left">
+        <div class="equipment-title">Find your <em>perfect equipment</em></div>
+        <p class="equipment-desc">Most players are using a racket that fights them &mdash; too heavy, wrong grip, a head size that doesn&rsquo;t match how they play. Work through the guide and you&rsquo;ll know what actually suits your game, and why.</p>
+        <a href="/racket-guide" class="btn-primary" style="width:fit-content;">Open The Guide</a>
+      </div>
+      <div class="equipment-right">
+        <div class="equipment-tool">
+          <div class="equipment-tool-num">01</div>
+          <div class="equipment-tool-name">Grip Size Finder</div>
+          <p class="equipment-tool-desc">Measure your hand, get your exact grip size.</p>
+        </div>
+        <div class="equipment-tool">
+          <div class="equipment-tool-num">02</div>
+          <div class="equipment-tool-name">Weight &amp; Balance</div>
+          <p class="equipment-tool-desc">What weight suits your swing, and what it costs you.</p>
+        </div>
+        <div class="equipment-tool">
+          <div class="equipment-tool-num">03</div>
+          <div class="equipment-tool-name">Head Size Selector</div>
+          <p class="equipment-tool-desc">Power against control &mdash; see the trade-off.</p>
+        </div>
+        <div class="equipment-tool">
+          <div class="equipment-tool-num">04</div>
+          <div class="equipment-tool-name">Picks By Level</div>
+          <p class="equipment-tool-desc">Beginner, intermediate, advanced and juniors.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1559,23 +1769,23 @@
     <div class="process-steps">
       <div class="process-step fade-up">
         <div class="step-num">1</div>
-        <div class="step-title">Choose a Program</div>
-        <p class="step-desc">Pick the level of coaching that fits your goals, budget, and schedule.</p>
+        <div class="step-title">Pick Your Option</div>
+        <p class="step-desc">From a $39 written breakdown to a full match review with a live call.</p>
       </div>
       <div class="process-step active fade-up">
         <div class="step-num">2</div>
         <div class="step-title">Send Your Footage</div>
-        <p class="step-desc">Upload practice or match video. Any angle, any device — just hit record.</p>
+        <p class="step-desc">Up to 10 minutes from your phone. Any angle — just hit record.</p>
       </div>
       <div class="process-step fade-up">
         <div class="step-num">3</div>
         <div class="step-title">Get Your Breakdown</div>
-        <p class="step-desc">Receive detailed voiceover feedback with specific corrections and drills.</p>
+        <p class="step-desc">Corrections and drills back in 24–48 hours, or a video report in 1–3 days.</p>
       </div>
       <div class="process-step fade-up">
         <div class="step-num">4</div>
         <div class="step-title">Train & Improve</div>
-        <p class="step-desc">Apply the feedback, track progress, and level up with every session.</p>
+        <p class="step-desc">Work the drills, send new footage, and keep building on what changed.</p>
       </div>
     </div>
   </section>
@@ -1770,9 +1980,12 @@
       <div>
         <div class="footer-col-title">Programs</div>
         <ul class="footer-links">
-          <li><a href="#programs">Video Analysis — $75</a></li>
-          <li><a href="#programs">4-Week Program — $197</a></li>
-          <li><a href="#programs">Mentorship — $397</a></li>
+          <li><a href="#programs">Video Analysis — $39</a></li>
+          <li><a href="#programs">Personal Video Report — $89</a></li>
+          <li><a href="#programs">Match Breakdown &amp; Strategy — $179</a></li>
+          <li><a href="#course">The Serve Course — $79</a></li>
+          <li><a href="#course">Course + Video Report — $129</a></li>
+          <li><a href="/racket-guide">Racket Guide — Free</a></li>
           <li><a href="https://calendly.com/tennissanjose" target="_blank" rel="noopener noreferrer">Private Sessions</a></li>
         </ul>
       </div>
